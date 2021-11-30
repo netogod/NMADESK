@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F974F3A3-793F-4150-9A62-4B286835D862}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>NMADesk</RootNamespace>
+    <AssemblyName>NMADesk</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.5.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="FontAwesome.Sharp, Version=5.15.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.5.15.1\lib\net45\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\VisualBasic.PowerPacks.Vs.1.0.0\lib\Microsoft.VisualBasic.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\VisualBasic.PowerPacks.Vs.1.0.0\lib\Microsoft.VisualBasic.PowerPacks.Vs.dll</HintPath>
+    </Reference>
+    <Reference Include="Oracle.ManagedDataAccess, Version=4.122.19.1, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
+      <HintPath>..\packages\Oracle.ManagedDataAccess.19.13.0\lib\net40\Oracle.ManagedDataAccess.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BD\ACCIDENTE.cs">
+      <DependentUpon>NMADesk.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD\AGENDA.cs">
+      <DependentUpon>NMADesk.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD\ASESORIA.cs">
+      <DependentUpon>NMADesk.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD\AUDITORIAUSER.cs">
+      <DependentUpon>NMADesk.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD\CAPACITACION.cs">
+      <DependentUpon>NMADesk.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD\CHECKLIST.cs">
+      <DependentUpon>NMADesk.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD\CLIENTE.cs">
+      <DependentUpon>NMADesk.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD\CONTRATO.cs">
+      <DependentUpon>NMADesk.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD\DETALLE_CAP.cs">
+      <DependentUpon>NMADesk.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD\DETALLE_FACT.cs">
+      <DependentUpon>NMADesk.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD\DETALLE_SERV.cs">
+      <DependentUpon>NMADesk.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD\EMPLEADOS.cs">
+      <DependentUpon>NMADesk.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD\EMPRESA.cs">
+      <DependentUpon>NMADesk.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD\ESTADO.cs">
+      <DependentUpon>NMADesk.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD\FACTURA.cs">
+      <DependentUpon>NMADesk.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD\MENU_ROL.cs">
+      <DependentUpon>NMADesk.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD\NMADesk.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NMADesk.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD\NMADesk.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NMADesk.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD\NMADesk.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>NMADesk.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="BD\OSDDMW_DIAGRAMS.cs">
+      <DependentUpon>NMADesk.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD\PROFESIONAL.cs">
+      <DependentUpon>NMADesk.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD\REPORT_MENSUAL.cs">
+      <DependentUpon>NMADesk.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD\ROL.cs">
+      <DependentUpon>NMADesk.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD\SERVICIO.cs">
+      <DependentUpon>NMADesk.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD\SERV_DETALLE.cs">
+      <DependentUpon>NMADesk.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD\SUCURSAL.cs">
+      <DependentUpon>NMADesk.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD\TIPO_CAP.cs">
+      <DependentUpon>NMADesk.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD\USUARIO.cs">
+      <DependentUpon>NMADesk.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD\VISITA_TERR.cs">
+      <DependentUpon>NMADesk.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ticket.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ticket.Designer.cs">
+      <DependentUpon>ticket.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCliente.Designer.cs">
+      <DependentUpon>FrmCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FormLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FormLogin.Designer.cs">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="FormLogin.resx">
+      <DependentUpon>FormLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCliente.resx">
+      <DependentUpon>FrmCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="ticket.resx">
+      <DependentUpon>ticket.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="BD\NMADesk.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>NMADesk.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="BD\NMADesk.edmx.diagram">
+      <DependentUpon>NMADesk.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BD\NMADesk.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>NMADesk.Context.cs</LastGenOutput>
+      <DependentUpon>NMADesk.edmx</DependentUpon>
+    </Content>
+    <Content Include="BD\NMADesk.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>NMADesk.edmx</DependentUpon>
+      <LastGenOutput>NMADesk.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

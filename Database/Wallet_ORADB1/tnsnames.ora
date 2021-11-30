@@ -1,0 +1,8 @@
+oradb1_high = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.sa-santiago-1.oraclecloud.com))(connect_data=(service_name=ge055b73eb7e34f_oradb1_high.adb.oraclecloud.com))(security=(ssl_server_cert_dn="CN=adb.sa-santiago-1.oraclecloud.com, O=Oracle Corporation, L=Redwood City, ST=California, C=US")))
+
+oradb1_low = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.sa-santiago-1.oraclecloud.com))(connect_data=(service_name=ge055b73eb7e34f_oradb1_low.adb.oraclecloud.com))(security=(ssl_server_cert_dn="CN=adb.sa-santiago-1.oraclecloud.com, O=Oracle Corporation, L=Redwood City, ST=California, C=US")))
+
+oradb1_medium = (description= (retry_count=20)(retry_delay=3)(address=(protocol=tcps)(port=1522)(host=adb.sa-santiago-1.oraclecloud.com))(connect_data=(service_name=ge055b73eb7e34f_oradb1_medium.adb.oraclecloud.com))(security=(ssl_server_cert_dn="CN=adb.sa-santiago-1.oraclecloud.com, O=Oracle Corporation, L=Redwood City, ST=California, C=US")))
+
+
+

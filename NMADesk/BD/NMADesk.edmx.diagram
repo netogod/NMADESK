@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="4483bb8561404424b7df8613d50b242c" Name="Diagram1">
+        <EntityTypeShape EntityType="Model.ACCIDENTE" Width="1.5" PointX="7.5" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AGENDA" Width="1.5" PointX="5.25" PointY="18.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ASESORIA" Width="1.5" PointX="12" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.AUDITORIAUSER" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CAPACITACION" Width="1.5" PointX="15" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CHECKLIST" Width="1.5" PointX="14.25" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CLIENTE" Width="1.5" PointX="3" PointY="11.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.CONTRATO" Width="1.5" PointX="5.25" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DETALLE_CAP" Width="1.5" PointX="17.25" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DETALLE_FACT" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.DETALLE_SERV" Width="1.5" PointX="7.5" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.EMPLEADOS" Width="1.5" PointX="5.25" PointY="14.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.EMPRESA" Width="1.5" PointX="0.75" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ESTADO" Width="1.5" PointX="6" PointY="21.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.FACTURA" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.MENU_ROL" Width="1.5" PointX="6" PointY="31.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.OSDDMW_DIAGRAMS" Width="1.5" PointX="2.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.PROFESIONAL" Width="1.5" PointX="3" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.REPORT_MENSUAL" Width="1.5" PointX="4.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.ROL" Width="1.5" PointX="3.75" PointY="27.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.SERV_DETALLE" Width="1.5" PointX="9.75" PointY="16.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.SERVICIO" Width="1.5" PointX="7.5" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.SUCURSAL" Width="1.5" PointX="5.25" PointY="24.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TICKET" Width="1.5" PointX="8.25" PointY="21.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.TIPO_CAP" Width="1.5" PointX="12.75" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.USUARIO" Width="1.5" PointX="6" PointY="27" IsExpanded="true" />
+        <EntityTypeShape EntityType="Model.VISITA_TERR" Width="1.5" PointX="12" PointY="22" IsExpanded="true" />
+        <AssociationConnector Association="Model.ACCIDENTE_EMPLEADOS_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.AGENDA_PROFESIONAL_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.SERVICIO_AGENDA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.ASESORIA_SERV_DETALLE_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.CAPACITACION_SERV_DETALLE_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.CAPACITACION_TIP_CAP_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.DETALLE_CAP_CAPACITACION_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.CHECKLIST_VISITA_TERR_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.CLIENTE_EMPRESA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.CONTRATO_CLIENTE_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.EMPLEADOS_CLIENTE_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.SERVICIO_CLIENTE_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.SUCURSAL_CLIENTE_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.CONTRATO_EMPRESA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.DETALLE_SERV_CONTRATO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.DETALLE_FACT_FACTURA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.PROFESIONAL_EMPRESA_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.TICKET_ESTADO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.MENU_ROL_ROL_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.TICKET_PROFESIONAL_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.USUARIO_ROL_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.SERV_DETALLE_SERVICIO_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.VISITA_TERR_SERV_DETALLE_FK" ManuallyRouted="false" />
+        <AssociationConnector Association="Model.TICKET_USUARIO_FK" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,1894 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="18.0" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ACCIDENTE">
+          <Key>
+            <PropertyRef Name="ID_ACCIDENTE" />
+          </Key>
+          <Property Name="ID_ACCIDENTE" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="SEVERIDAD_ACC" Type="varchar2" MaxLength="30" Nullable="false" />
+          <Property Name="CANT_AFECTADO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESC_ACCID" Type="varchar2" MaxLength="150" Nullable="false" />
+          <Property Name="EMPLEADOS_RUT_EMPL" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AGENDA">
+          <Key>
+            <PropertyRef Name="ID_AGENDA" />
+          </Key>
+          <Property Name="ID_AGENDA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA_AGEN" Type="date" Nullable="false" />
+          <Property Name="FECHA_REALI" Type="date" Nullable="false" />
+          <Property Name="LUGAR" Type="varchar2" MaxLength="40" Nullable="false" />
+          <Property Name="PROFESIONAL_RUT_PROF" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="STAT_AGEN" Type="varchar2" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ASESORIA">
+          <Key>
+            <PropertyRef Name="ID_ASESORIA" />
+          </Key>
+          <Property Name="ID_ASESORIA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TIPO_ASESORIA" Type="varchar2" MaxLength="30" Nullable="false" />
+          <Property Name="DESC_ASESORIA" Type="varchar2" MaxLength="60" Nullable="false" />
+          <Property Name="SERV_DETALLE_ID_SERV_DETALLE" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_SERV_DETALLE" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AUDITORIAUSER">
+          <Key>
+            <PropertyRef Name="ID_AUDITORIA" />
+          </Key>
+          <Property Name="ID_AUDITORIA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DETALLE_AUDIT" Type="varchar2" MaxLength="150" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CAPACITACION">
+          <Key>
+            <PropertyRef Name="ID_CAP" />
+          </Key>
+          <Property Name="ID_CAP" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA_CAP" Type="date" Nullable="false" />
+          <Property Name="TEMA_CAP" Type="varchar2" MaxLength="25" Nullable="false" />
+          <Property Name="SERV_DETALLE_ID_SERV_DETALLE" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TIPO_CAP_ID_TIP_CAP" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="STAT_CAP" Type="varchar2" MaxLength="10" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CHECKLIST">
+          <Key>
+            <PropertyRef Name="ID_CHECKLIST" />
+          </Key>
+          <Property Name="ID_CHECKLIST" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RUBRO_CLI" Type="varchar2" MaxLength="40" Nullable="false" />
+          <Property Name="RESUL_VISI" Type="varchar2" MaxLength="40" Nullable="false" />
+          <Property Name="MEJORAS" Type="varchar2" MaxLength="60" Nullable="false" />
+          <Property Name="FECHA_CHECKLIST" Type="date" Nullable="false" />
+          <Property Name="ACT_NECES" Type="varchar2" MaxLength="60" Nullable="false" />
+          <Property Name="PROBLEM_SEG" Type="varchar2" MaxLength="60" Nullable="false" />
+          <Property Name="VISITA_TERR_ID_VISITA" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CLIENTE">
+          <Key>
+            <PropertyRef Name="RUT_CLI" />
+          </Key>
+          <Property Name="RUT_CLI" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DV_CLI" Type="varchar2" MaxLength="5" Nullable="false" />
+          <Property Name="RAZ_SOC_CLI" Type="varchar2" MaxLength="40" Nullable="false" />
+          <Property Name="MAIL_CLI" Type="varchar2" MaxLength="40" Nullable="false" />
+          <Property Name="STAT_CLI" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="TEL_CLI" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="EMPRESA_RUT_EMP" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CONTRATO">
+          <Key>
+            <PropertyRef Name="ID_CONTRATO" />
+          </Key>
+          <Property Name="ID_CONTRATO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA_EMIS" Type="date" Nullable="false" />
+          <Property Name="PAGO_CONT" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="VALID" Type="date" Nullable="false" />
+          <Property Name="STATUS_CONT" Type="varchar2" MaxLength="15" Nullable="false" />
+          <Property Name="EMPRESA_RUT_EMP" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CLIENTE_RUT_CLI" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DETALLE_CAP">
+          <Key>
+            <PropertyRef Name="ID_D_CAPA" />
+          </Key>
+          <Property Name="ID_D_CAPA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_PERSONAL" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_PROF_CAP" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ASISTE_PERS" Type="varchar2" MaxLength="10" Nullable="false" />
+          <Property Name="NOTA_PERS" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CAPACITACION_ID_CAP" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DETALLE_FACT">
+          <Key>
+            <PropertyRef Name="ID_DET_FAC" />
+          </Key>
+          <Property Name="ID_DET_FAC" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TOT_CAP" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TOT_ASES" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TOT_VIST" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="SERV_ADIC" Type="number" Precision="38" Scale="0" />
+          <Property Name="FACTURA_ID_FACT" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="MON_TOT_FACT" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="DETALLE_SERV">
+          <Key>
+            <PropertyRef Name="ID_D_SERV" />
+          </Key>
+          <Property Name="ID_D_SERV" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TIPO_SERV" Type="varchar2" MaxLength="25" Nullable="false" />
+          <Property Name="NOM_SERV" Type="varchar2" MaxLength="30" Nullable="false" />
+          <Property Name="MENSUALIDAD_S" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PAGO_EXT" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ADICIONAL" Type="varchar2" MaxLength="5" Nullable="false" />
+          <Property Name="CONTRATO_ID_CONTRATO" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EMPLEADOS">
+          <Key>
+            <PropertyRef Name="RUT_EMPL" />
+          </Key>
+          <Property Name="RUT_EMPL" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DV_EMPL" Type="varchar2" MaxLength="5" />
+          <Property Name="NOM_EMPL" Type="varchar2" MaxLength="25" Nullable="false" />
+          <Property Name="AP_EMPL" Type="varchar2" MaxLength="25" Nullable="false" />
+          <Property Name="CANT_CAP" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CLIENTE_RUT_CLI" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="STAT_EMPL" Type="varchar2" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EMPRESA">
+          <Key>
+            <PropertyRef Name="RUT_EMP" />
+          </Key>
+          <Property Name="RUT_EMP" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DV_EMP" Type="varchar2" MaxLength="5" Nullable="false" />
+          <Property Name="RAZ_SOC_EMP" Type="varchar2" MaxLength="40" Nullable="false" />
+          <Property Name="NOM_EMPRESA" Type="varchar2" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ESTADO">
+          <Key>
+            <PropertyRef Name="ID_ESTADO" />
+          </Key>
+          <Property Name="ID_ESTADO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar2" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FACTURA">
+          <Key>
+            <PropertyRef Name="ID_FACT" />
+          </Key>
+          <Property Name="ID_FACT" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA_EMISION" Type="date" Nullable="false" />
+          <Property Name="RAZ_SOC_EMIS" Type="varchar2" MaxLength="40" Nullable="false" />
+          <Property Name="RUT_CLI_FACT" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RUT_EMIS" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DIRECCION_CLI" Type="varchar2" MaxLength="40" Nullable="false" />
+          <Property Name="MONTO_PAG" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MENU_ROL">
+          <Key>
+            <PropertyRef Name="ID_MENU" />
+          </Key>
+          <Property Name="ID_MENU" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESC_MENU" Type="varchar2" MaxLength="15" Nullable="false" />
+          <Property Name="ROL_ID_ROL" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="OSDDMW_DIAGRAMS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NAME" Type="varchar2" MaxLength="70" />
+          <Property Name="DESCRIPTION" Type="varchar2" MaxLength="4000" />
+          <Property Name="LAST_UPDATE" Type="timestamp" Precision="6" />
+          <Property Name="GLOBAL_ID" Type="varchar2" MaxLength="70" />
+          <Property Name="DESIGN_ID" Type="varchar2" MaxLength="70" />
+          <Property Name="DESIGN_NAME" Type="varchar2" MaxLength="256" />
+          <Property Name="MODEL_ID" Type="varchar2" MaxLength="70" />
+          <Property Name="MODEL_NAME" Type="varchar2" MaxLength="256" />
+          <Property Name="SUBVIEW_ID" Type="varchar2" MaxLength="70" />
+          <Property Name="SUBVIEW_NAME" Type="varchar2" MaxLength="256" />
+          <Property Name="PARENT_ID" Type="varchar2" MaxLength="70" />
+          <Property Name="DIAGRAM_TYPE" Type="varchar2" MaxLength="10" />
+          <Property Name="LAYOUT" Type="blob" />
+        </EntityType>
+        <EntityType Name="PROFESIONAL">
+          <Key>
+            <PropertyRef Name="RUT_PROF" />
+          </Key>
+          <Property Name="RUT_PROF" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DV_PROF" Type="varchar2" MaxLength="5" Nullable="false" />
+          <Property Name="NOM_PROF" Type="varchar2" MaxLength="35" Nullable="false" />
+          <Property Name="AP_PROF" Type="varchar2" MaxLength="25" Nullable="false" />
+          <Property Name="MAIL_PROF" Type="varchar2" MaxLength="40" Nullable="false" />
+          <Property Name="TEL_PROF" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="EMPRESA_RUT_EMP" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="STAT_PROF" Type="varchar2" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="REPORT_MENSUAL">
+          <Key>
+            <PropertyRef Name="ID_REPORT" />
+          </Key>
+          <Property Name="ID_REPORT" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CLIENTE_REP" Type="varchar2" MaxLength="35" Nullable="false" />
+          <Property Name="CANT_VISITA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CANT_CAP" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CANT_ASES" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CANT_LLAM" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NUEVAS_IMPL" Type="varchar2" MaxLength="35" Nullable="false" />
+          <Property Name="CANT_ACCID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CANT_MULT" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="MONTO_TOTAL_MUL" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ROL">
+          <Key>
+            <PropertyRef Name="ID_ROL" />
+          </Key>
+          <Property Name="ID_ROL" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESC_ROL" Type="varchar2" MaxLength="25" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SERV_DETALLE">
+          <Key>
+            <PropertyRef Name="ID_SERV_DETALLE" />
+          </Key>
+          <Property Name="ID_SERV_DETALLE" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RUT_CLI_SERV" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RUT_PROF_SERV" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="LUGAR" Type="varchar2" MaxLength="40" Nullable="false" />
+          <Property Name="TIPO_SERV" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="EN_CONTRATO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="SERVICIO_ID_SERV" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SERVICIO">
+          <Key>
+            <PropertyRef Name="ID_SERV" />
+          </Key>
+          <Property Name="ID_SERV" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOM_SERV" Type="varchar2" MaxLength="30" Nullable="false" />
+          <Property Name="COSTO_SERV" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CLIENTE_RUT_CLI" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="AGENDA_ID_AGENDA" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SUCURSAL">
+          <Key>
+            <PropertyRef Name="ID_SUC" />
+          </Key>
+          <Property Name="ID_SUC" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMB_SUC" Type="varchar2" MaxLength="25" Nullable="false" />
+          <Property Name="DIRECCION_SUC" Type="varchar2" MaxLength="40" Nullable="false" />
+          <Property Name="CLIENTE_RUT_CLI" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TICKET">
+          <Key>
+            <PropertyRef Name="ID_TICKET" />
+          </Key>
+          <Property Name="ID_TICKET" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA_CREACION_TICKET" Type="date" Nullable="false" />
+          <Property Name="FECHA_CIERRE_TICKET" Type="date" />
+          <Property Name="ID_ESTADO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_USUARIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="500" Nullable="false" />
+          <Property Name="ID_PROFESIONAL" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="SOLUCION" Type="varchar2" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="TIPO_CAP">
+          <Key>
+            <PropertyRef Name="ID_TIP_CAP" />
+          </Key>
+          <Property Name="ID_TIP_CAP" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TIPO_CAPAC" Type="varchar2" MaxLength="30" Nullable="false" />
+          <Property Name="CAPACITACION_ID_CAP" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="ID_USER" />
+          </Key>
+          <Property Name="ID_USER" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOM_USER" Type="varchar2" MaxLength="25" Nullable="false" />
+          <Property Name="AP_USER" Type="varchar2" MaxLength="25" Nullable="false" />
+          <Property Name="MAIL_USER" Type="varchar2" MaxLength="35" Nullable="false" />
+          <Property Name="TELM_USER" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="STATUS_USER" Type="varchar2" MaxLength="15" Nullable="false" />
+          <Property Name="ROL_ID_ROL" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PASSWD" Type="varchar2" MaxLength="40" Nullable="false" />
+          <Property Name="PASSWD2" Type="varchar2" MaxLength="40" Nullable="false" />
+        </EntityType>
+        <EntityType Name="VISITA_TERR">
+          <Key>
+            <PropertyRef Name="ID_VISITA" />
+          </Key>
+          <Property Name="ID_VISITA" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA_VISITA" Type="date" Nullable="false" />
+          <Property Name="TIPO_VISITA" Type="varchar2" MaxLength="30" Nullable="false" />
+          <Property Name="RESOL_VISIT" Type="varchar2" MaxLength="50" Nullable="false" />
+          <Property Name="SERV_DETALLE_ID_SERV_DETALLE" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <Association Name="ACCIDENTE_EMPLEADOS_FK">
+          <End Role="EMPLEADOS" Type="Self.EMPLEADOS" Multiplicity="1" />
+          <End Role="ACCIDENTE" Type="Self.ACCIDENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLEADOS">
+              <PropertyRef Name="RUT_EMPL" />
+            </Principal>
+            <Dependent Role="ACCIDENTE">
+              <PropertyRef Name="EMPLEADOS_RUT_EMPL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AGENDA_PROFESIONAL_FK">
+          <End Role="PROFESIONAL" Type="Self.PROFESIONAL" Multiplicity="1" />
+          <End Role="AGENDA" Type="Self.AGENDA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROFESIONAL">
+              <PropertyRef Name="RUT_PROF" />
+            </Principal>
+            <Dependent Role="AGENDA">
+              <PropertyRef Name="PROFESIONAL_RUT_PROF" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ASESORIA_SERV_DETALLE_FK">
+          <End Role="SERV_DETALLE" Type="Self.SERV_DETALLE" Multiplicity="1" />
+          <End Role="ASESORIA" Type="Self.ASESORIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SERV_DETALLE">
+              <PropertyRef Name="ID_SERV_DETALLE" />
+            </Principal>
+            <Dependent Role="ASESORIA">
+              <PropertyRef Name="SERV_DETALLE_ID_SERV_DETALLE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CAPACITACION_SERV_DETALLE_FK">
+          <End Role="SERV_DETALLE" Type="Self.SERV_DETALLE" Multiplicity="1" />
+          <End Role="CAPACITACION" Type="Self.CAPACITACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SERV_DETALLE">
+              <PropertyRef Name="ID_SERV_DETALLE" />
+            </Principal>
+            <Dependent Role="CAPACITACION">
+              <PropertyRef Name="SERV_DETALLE_ID_SERV_DETALLE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CAPACITACION_TIP_CAP_FK">
+          <End Role="TIPO_CAP" Type="Self.TIPO_CAP" Multiplicity="1" />
+          <End Role="CAPACITACION" Type="Self.CAPACITACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_CAP">
+              <PropertyRef Name="ID_TIP_CAP" />
+            </Principal>
+            <Dependent Role="CAPACITACION">
+              <PropertyRef Name="TIPO_CAP_ID_TIP_CAP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CHECKLIST_VISITA_TERR_FK">
+          <End Role="VISITA_TERR" Type="Self.VISITA_TERR" Multiplicity="1" />
+          <End Role="CHECKLIST" Type="Self.CHECKLIST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VISITA_TERR">
+              <PropertyRef Name="ID_VISITA" />
+            </Principal>
+            <Dependent Role="CHECKLIST">
+              <PropertyRef Name="VISITA_TERR_ID_VISITA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CLIENTE_EMPRESA_FK">
+          <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="1" />
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPRESA">
+              <PropertyRef Name="RUT_EMP" />
+            </Principal>
+            <Dependent Role="CLIENTE">
+              <PropertyRef Name="EMPRESA_RUT_EMP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CONTRATO_CLIENTE_FK">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+          <End Role="CONTRATO" Type="Self.CONTRATO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="RUT_CLI" />
+            </Principal>
+            <Dependent Role="CONTRATO">
+              <PropertyRef Name="CLIENTE_RUT_CLI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CONTRATO_EMPRESA_FK">
+          <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="1" />
+          <End Role="CONTRATO" Type="Self.CONTRATO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPRESA">
+              <PropertyRef Name="RUT_EMP" />
+            </Principal>
+            <Dependent Role="CONTRATO">
+              <PropertyRef Name="EMPRESA_RUT_EMP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DETALLE_CAP_CAPACITACION_FK">
+          <End Role="CAPACITACION" Type="Self.CAPACITACION" Multiplicity="1" />
+          <End Role="DETALLE_CAP" Type="Self.DETALLE_CAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAPACITACION">
+              <PropertyRef Name="ID_CAP" />
+            </Principal>
+            <Dependent Role="DETALLE_CAP">
+              <PropertyRef Name="CAPACITACION_ID_CAP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DETALLE_FACT_FACTURA_FK">
+          <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="1" />
+          <End Role="DETALLE_FACT" Type="Self.DETALLE_FACT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FACTURA">
+              <PropertyRef Name="ID_FACT" />
+            </Principal>
+            <Dependent Role="DETALLE_FACT">
+              <PropertyRef Name="FACTURA_ID_FACT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DETALLE_SERV_CONTRATO_FK">
+          <End Role="CONTRATO" Type="Self.CONTRATO" Multiplicity="1" />
+          <End Role="DETALLE_SERV" Type="Self.DETALLE_SERV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CONTRATO">
+              <PropertyRef Name="ID_CONTRATO" />
+            </Principal>
+            <Dependent Role="DETALLE_SERV">
+              <PropertyRef Name="CONTRATO_ID_CONTRATO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EMPLEADOS_CLIENTE_FK">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+          <End Role="EMPLEADOS" Type="Self.EMPLEADOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="RUT_CLI" />
+            </Principal>
+            <Dependent Role="EMPLEADOS">
+              <PropertyRef Name="CLIENTE_RUT_CLI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MENU_ROL_ROL_FK">
+          <End Role="ROL" Type="Self.ROL" Multiplicity="1" />
+          <End Role="MENU_ROL" Type="Self.MENU_ROL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROL">
+              <PropertyRef Name="ID_ROL" />
+            </Principal>
+            <Dependent Role="MENU_ROL">
+              <PropertyRef Name="ROL_ID_ROL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PROFESIONAL_EMPRESA_FK">
+          <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="1" />
+          <End Role="PROFESIONAL" Type="Self.PROFESIONAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPRESA">
+              <PropertyRef Name="RUT_EMP" />
+            </Principal>
+            <Dependent Role="PROFESIONAL">
+              <PropertyRef Name="EMPRESA_RUT_EMP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SERV_DETALLE_SERVICIO_FK">
+          <End Role="SERVICIO" Type="Self.SERVICIO" Multiplicity="1" />
+          <End Role="SERV_DETALLE" Type="Self.SERV_DETALLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SERVICIO">
+              <PropertyRef Name="ID_SERV" />
+            </Principal>
+            <Dependent Role="SERV_DETALLE">
+              <PropertyRef Name="SERVICIO_ID_SERV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SERVICIO_AGENDA_FK">
+          <End Role="AGENDA" Type="Self.AGENDA" Multiplicity="1" />
+          <End Role="SERVICIO" Type="Self.SERVICIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AGENDA">
+              <PropertyRef Name="ID_AGENDA" />
+            </Principal>
+            <Dependent Role="SERVICIO">
+              <PropertyRef Name="AGENDA_ID_AGENDA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SERVICIO_CLIENTE_FK">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+          <End Role="SERVICIO" Type="Self.SERVICIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="RUT_CLI" />
+            </Principal>
+            <Dependent Role="SERVICIO">
+              <PropertyRef Name="CLIENTE_RUT_CLI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SUCURSAL_CLIENTE_FK">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+          <End Role="SUCURSAL" Type="Self.SUCURSAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="RUT_CLI" />
+            </Principal>
+            <Dependent Role="SUCURSAL">
+              <PropertyRef Name="CLIENTE_RUT_CLI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TICKET_ESTADO_FK">
+          <End Role="ESTADO" Type="Self.ESTADO" Multiplicity="1" />
+          <End Role="TICKET" Type="Self.TICKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO">
+              <PropertyRef Name="ID_ESTADO" />
+            </Principal>
+            <Dependent Role="TICKET">
+              <PropertyRef Name="ID_ESTADO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TICKET_PROFESIONAL_FK">
+          <End Role="PROFESIONAL" Type="Self.PROFESIONAL" Multiplicity="1" />
+          <End Role="TICKET" Type="Self.TICKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROFESIONAL">
+              <PropertyRef Name="RUT_PROF" />
+            </Principal>
+            <Dependent Role="TICKET">
+              <PropertyRef Name="ID_PROFESIONAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TICKET_USUARIO_FK">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="TICKET" Type="Self.TICKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="ID_USER" />
+            </Principal>
+            <Dependent Role="TICKET">
+              <PropertyRef Name="ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="USUARIO_ROL_FK">
+          <End Role="ROL" Type="Self.ROL" Multiplicity="1" />
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROL">
+              <PropertyRef Name="ID_ROL" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="ROL_ID_ROL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VISITA_TERR_SERV_DETALLE_FK">
+          <End Role="SERV_DETALLE" Type="Self.SERV_DETALLE" Multiplicity="1" />
+          <End Role="VISITA_TERR" Type="Self.VISITA_TERR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SERV_DETALLE">
+              <PropertyRef Name="ID_SERV_DETALLE" />
+            </Principal>
+            <Dependent Role="VISITA_TERR">
+              <PropertyRef Name="SERV_DETALLE_ID_SERV_DETALLE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="SP_ACTIVATE_TICKET" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
+          <Parameter Name="V_ID_TICKET" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_CREAR_TICKET" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
+          <Parameter Name="V_FECHA_CREACION_TICKET" Type="date" Mode="In" />
+          <Parameter Name="V_FECHA_CIERRE_TICKET" Type="date" Mode="In" />
+          <Parameter Name="V_ID_ESTADO" Type="number" Mode="In" />
+          <Parameter Name="V_ID_USUARIO" Type="number" Mode="In" />
+          <Parameter Name="V_DESCRIPCION" Type="varchar2" Mode="In" />
+          <Parameter Name="V_ID_PROFESIONAL" Type="number" Mode="In" />
+          <Parameter Name="V_SOLUCION" Type="varchar2" Mode="In" />
+        </Function>
+        <Function Name="SP_DESACTIVATE_TICKET" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
+          <Parameter Name="V_ID_TICKET" Type="number" Mode="In" />
+        </Function>
+        <Function Name="SP_UPDATE_TICKET" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
+          <Parameter Name="V_ID_TICKET" Type="number" Mode="In" />
+          <Parameter Name="V_FECHA_CREACION_TICKET" Type="date" Mode="In" />
+          <Parameter Name="V_FECHA_CIERRE_TICKET" Type="date" Mode="In" />
+          <Parameter Name="V_ID_ESTADO" Type="number" Mode="In" />
+          <Parameter Name="V_ID_USUARIO" Type="number" Mode="In" />
+          <Parameter Name="V_DESCRIPCION" Type="varchar2" Mode="In" />
+          <Parameter Name="V_ID_PROFESIONAL" Type="number" Mode="In" />
+          <Parameter Name="V_SOLUCION" Type="varchar2" Mode="In" />
+        </Function>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="ACCIDENTE" EntityType="Self.ACCIDENTE" Schema="ADMIN" store:Type="Tables" />
+          <EntitySet Name="AGENDA" EntityType="Self.AGENDA" Schema="ADMIN" store:Type="Tables" />
+          <EntitySet Name="ASESORIA" EntityType="Self.ASESORIA" Schema="ADMIN" store:Type="Tables" />
+          <EntitySet Name="AUDITORIAUSER" EntityType="Self.AUDITORIAUSER" Schema="ADMIN" store:Type="Tables" />
+          <EntitySet Name="CAPACITACION" EntityType="Self.CAPACITACION" Schema="ADMIN" store:Type="Tables" />
+          <EntitySet Name="CHECKLIST" EntityType="Self.CHECKLIST" Schema="ADMIN" store:Type="Tables" />
+          <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" Schema="ADMIN" store:Type="Tables" />
+          <EntitySet Name="CONTRATO" EntityType="Self.CONTRATO" Schema="ADMIN" store:Type="Tables" />
+          <EntitySet Name="DETALLE_CAP" EntityType="Self.DETALLE_CAP" Schema="ADMIN" store:Type="Tables" />
+          <EntitySet Name="DETALLE_FACT" EntityType="Self.DETALLE_FACT" Schema="ADMIN" store:Type="Tables" />
+          <EntitySet Name="DETALLE_SERV" EntityType="Self.DETALLE_SERV" Schema="ADMIN" store:Type="Tables" />
+          <EntitySet Name="EMPLEADOS" EntityType="Self.EMPLEADOS" Schema="ADMIN" store:Type="Tables" />
+          <EntitySet Name="EMPRESA" EntityType="Self.EMPRESA" Schema="ADMIN" store:Type="Tables" />
+          <EntitySet Name="ESTADO" EntityType="Self.ESTADO" Schema="ADMIN" store:Type="Tables" />
+          <EntitySet Name="FACTURA" EntityType="Self.FACTURA" Schema="ADMIN" store:Type="Tables" />
+          <EntitySet Name="MENU_ROL" EntityType="Self.MENU_ROL" Schema="ADMIN" store:Type="Tables" />
+          <EntitySet Name="OSDDMW_DIAGRAMS" EntityType="Self.OSDDMW_DIAGRAMS" Schema="ADMIN" store:Type="Tables" />
+          <EntitySet Name="PROFESIONAL" EntityType="Self.PROFESIONAL" Schema="ADMIN" store:Type="Tables" />
+          <EntitySet Name="REPORT_MENSUAL" EntityType="Self.REPORT_MENSUAL" Schema="ADMIN" store:Type="Tables" />
+          <EntitySet Name="ROL" EntityType="Self.ROL" Schema="ADMIN" store:Type="Tables" />
+          <EntitySet Name="SERV_DETALLE" EntityType="Self.SERV_DETALLE" Schema="ADMIN" store:Type="Tables" />
+          <EntitySet Name="SERVICIO" EntityType="Self.SERVICIO" Schema="ADMIN" store:Type="Tables" />
+          <EntitySet Name="SUCURSAL" EntityType="Self.SUCURSAL" Schema="ADMIN" store:Type="Tables" />
+          <EntitySet Name="TICKET" EntityType="Self.TICKET" Schema="ADMIN" store:Type="Tables" />
+          <EntitySet Name="TIPO_CAP" EntityType="Self.TIPO_CAP" Schema="ADMIN" store:Type="Tables" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="ADMIN" store:Type="Tables" />
+          <EntitySet Name="VISITA_TERR" EntityType="Self.VISITA_TERR" Schema="ADMIN" store:Type="Tables" />
+          <AssociationSet Name="ACCIDENTE_EMPLEADOS_FK" Association="Self.ACCIDENTE_EMPLEADOS_FK">
+            <End Role="EMPLEADOS" EntitySet="EMPLEADOS" />
+            <End Role="ACCIDENTE" EntitySet="ACCIDENTE" />
+          </AssociationSet>
+          <AssociationSet Name="AGENDA_PROFESIONAL_FK" Association="Self.AGENDA_PROFESIONAL_FK">
+            <End Role="PROFESIONAL" EntitySet="PROFESIONAL" />
+            <End Role="AGENDA" EntitySet="AGENDA" />
+          </AssociationSet>
+          <AssociationSet Name="ASESORIA_SERV_DETALLE_FK" Association="Self.ASESORIA_SERV_DETALLE_FK">
+            <End Role="SERV_DETALLE" EntitySet="SERV_DETALLE" />
+            <End Role="ASESORIA" EntitySet="ASESORIA" />
+          </AssociationSet>
+          <AssociationSet Name="CAPACITACION_SERV_DETALLE_FK" Association="Self.CAPACITACION_SERV_DETALLE_FK">
+            <End Role="SERV_DETALLE" EntitySet="SERV_DETALLE" />
+            <End Role="CAPACITACION" EntitySet="CAPACITACION" />
+          </AssociationSet>
+          <AssociationSet Name="CAPACITACION_TIP_CAP_FK" Association="Self.CAPACITACION_TIP_CAP_FK">
+            <End Role="TIPO_CAP" EntitySet="TIPO_CAP" />
+            <End Role="CAPACITACION" EntitySet="CAPACITACION" />
+          </AssociationSet>
+          <AssociationSet Name="CHECKLIST_VISITA_TERR_FK" Association="Self.CHECKLIST_VISITA_TERR_FK">
+            <End Role="VISITA_TERR" EntitySet="VISITA_TERR" />
+            <End Role="CHECKLIST" EntitySet="CHECKLIST" />
+          </AssociationSet>
+          <AssociationSet Name="CLIENTE_EMPRESA_FK" Association="Self.CLIENTE_EMPRESA_FK">
+            <End Role="EMPRESA" EntitySet="EMPRESA" />
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+          </AssociationSet>
+          <AssociationSet Name="CONTRATO_CLIENTE_FK" Association="Self.CONTRATO_CLIENTE_FK">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="CONTRATO" EntitySet="CONTRATO" />
+          </AssociationSet>
+          <AssociationSet Name="CONTRATO_EMPRESA_FK" Association="Self.CONTRATO_EMPRESA_FK">
+            <End Role="EMPRESA" EntitySet="EMPRESA" />
+            <End Role="CONTRATO" EntitySet="CONTRATO" />
+          </AssociationSet>
+          <AssociationSet Name="DETALLE_CAP_CAPACITACION_FK" Association="Self.DETALLE_CAP_CAPACITACION_FK">
+            <End Role="CAPACITACION" EntitySet="CAPACITACION" />
+            <End Role="DETALLE_CAP" EntitySet="DETALLE_CAP" />
+          </AssociationSet>
+          <AssociationSet Name="DETALLE_FACT_FACTURA_FK" Association="Self.DETALLE_FACT_FACTURA_FK">
+            <End Role="FACTURA" EntitySet="FACTURA" />
+            <End Role="DETALLE_FACT" EntitySet="DETALLE_FACT" />
+          </AssociationSet>
+          <AssociationSet Name="DETALLE_SERV_CONTRATO_FK" Association="Self.DETALLE_SERV_CONTRATO_FK">
+            <End Role="CONTRATO" EntitySet="CONTRATO" />
+            <End Role="DETALLE_SERV" EntitySet="DETALLE_SERV" />
+          </AssociationSet>
+          <AssociationSet Name="EMPLEADOS_CLIENTE_FK" Association="Self.EMPLEADOS_CLIENTE_FK">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="EMPLEADOS" EntitySet="EMPLEADOS" />
+          </AssociationSet>
+          <AssociationSet Name="MENU_ROL_ROL_FK" Association="Self.MENU_ROL_ROL_FK">
+            <End Role="ROL" EntitySet="ROL" />
+            <End Role="MENU_ROL" EntitySet="MENU_ROL" />
+          </AssociationSet>
+          <AssociationSet Name="PROFESIONAL_EMPRESA_FK" Association="Self.PROFESIONAL_EMPRESA_FK">
+            <End Role="EMPRESA" EntitySet="EMPRESA" />
+            <End Role="PROFESIONAL" EntitySet="PROFESIONAL" />
+          </AssociationSet>
+          <AssociationSet Name="SERV_DETALLE_SERVICIO_FK" Association="Self.SERV_DETALLE_SERVICIO_FK">
+            <End Role="SERVICIO" EntitySet="SERVICIO" />
+            <End Role="SERV_DETALLE" EntitySet="SERV_DETALLE" />
+          </AssociationSet>
+          <AssociationSet Name="SERVICIO_AGENDA_FK" Association="Self.SERVICIO_AGENDA_FK">
+            <End Role="AGENDA" EntitySet="AGENDA" />
+            <End Role="SERVICIO" EntitySet="SERVICIO" />
+          </AssociationSet>
+          <AssociationSet Name="SERVICIO_CLIENTE_FK" Association="Self.SERVICIO_CLIENTE_FK">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="SERVICIO" EntitySet="SERVICIO" />
+          </AssociationSet>
+          <AssociationSet Name="SUCURSAL_CLIENTE_FK" Association="Self.SUCURSAL_CLIENTE_FK">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="SUCURSAL" EntitySet="SUCURSAL" />
+          </AssociationSet>
+          <AssociationSet Name="TICKET_ESTADO_FK" Association="Self.TICKET_ESTADO_FK">
+            <End Role="ESTADO" EntitySet="ESTADO" />
+            <End Role="TICKET" EntitySet="TICKET" />
+          </AssociationSet>
+          <AssociationSet Name="TICKET_PROFESIONAL_FK" Association="Self.TICKET_PROFESIONAL_FK">
+            <End Role="PROFESIONAL" EntitySet="PROFESIONAL" />
+            <End Role="TICKET" EntitySet="TICKET" />
+          </AssociationSet>
+          <AssociationSet Name="TICKET_USUARIO_FK" Association="Self.TICKET_USUARIO_FK">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="TICKET" EntitySet="TICKET" />
+          </AssociationSet>
+          <AssociationSet Name="USUARIO_ROL_FK" Association="Self.USUARIO_ROL_FK">
+            <End Role="ROL" EntitySet="ROL" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="VISITA_TERR_SERV_DETALLE_FK" Association="Self.VISITA_TERR_SERV_DETALLE_FK">
+            <End Role="SERV_DETALLE" EntitySet="SERV_DETALLE" />
+            <End Role="VISITA_TERR" EntitySet="VISITA_TERR" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ACCIDENTE">
+          <Key>
+            <PropertyRef Name="ID_ACCIDENTE" />
+          </Key>
+          <Property Name="ID_ACCIDENTE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="SEVERIDAD_ACC" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CANT_AFECTADO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESC_ACCID" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMPLEADOS_RUT_EMPL" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="EMPLEADOS" Relationship="Self.ACCIDENTE_EMPLEADOS_FK" FromRole="ACCIDENTE" ToRole="EMPLEADOS" />
+        </EntityType>
+        <EntityType Name="AGENDA">
+          <Key>
+            <PropertyRef Name="ID_AGENDA" />
+          </Key>
+          <Property Name="ID_AGENDA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA_AGEN" Type="DateTime" Nullable="false" />
+          <Property Name="FECHA_REALI" Type="DateTime" Nullable="false" />
+          <Property Name="LUGAR" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PROFESIONAL_RUT_PROF" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="STAT_AGEN" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PROFESIONAL" Relationship="Self.AGENDA_PROFESIONAL_FK" FromRole="AGENDA" ToRole="PROFESIONAL" />
+          <NavigationProperty Name="SERVICIO" Relationship="Self.SERVICIO_AGENDA_FK" FromRole="AGENDA" ToRole="SERVICIO" />
+        </EntityType>
+        <EntityType Name="ASESORIA">
+          <Key>
+            <PropertyRef Name="ID_ASESORIA" />
+          </Key>
+          <Property Name="ID_ASESORIA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TIPO_ASESORIA" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DESC_ASESORIA" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SERV_DETALLE_ID_SERV_DETALLE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_SERV_DETALLE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="SERV_DETALLE" Relationship="Self.ASESORIA_SERV_DETALLE_FK" FromRole="ASESORIA" ToRole="SERV_DETALLE" />
+        </EntityType>
+        <EntityType Name="AUDITORIAUSER">
+          <Key>
+            <PropertyRef Name="ID_AUDITORIA" />
+          </Key>
+          <Property Name="ID_AUDITORIA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DETALLE_AUDIT" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="CAPACITACION">
+          <Key>
+            <PropertyRef Name="ID_CAP" />
+          </Key>
+          <Property Name="ID_CAP" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA_CAP" Type="DateTime" Nullable="false" />
+          <Property Name="TEMA_CAP" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SERV_DETALLE_ID_SERV_DETALLE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TIPO_CAP_ID_TIP_CAP" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="STAT_CAP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="SERV_DETALLE" Relationship="Self.CAPACITACION_SERV_DETALLE_FK" FromRole="CAPACITACION" ToRole="SERV_DETALLE" />
+          <NavigationProperty Name="TIPO_CAP" Relationship="Self.CAPACITACION_TIP_CAP_FK" FromRole="CAPACITACION" ToRole="TIPO_CAP" />
+          <NavigationProperty Name="DETALLE_CAP" Relationship="Self.DETALLE_CAP_CAPACITACION_FK" FromRole="CAPACITACION" ToRole="DETALLE_CAP" />
+        </EntityType>
+        <EntityType Name="CHECKLIST">
+          <Key>
+            <PropertyRef Name="ID_CHECKLIST" />
+          </Key>
+          <Property Name="ID_CHECKLIST" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RUBRO_CLI" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RESUL_VISI" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MEJORAS" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FECHA_CHECKLIST" Type="DateTime" Nullable="false" />
+          <Property Name="ACT_NECES" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PROBLEM_SEG" Type="String" MaxLength="60" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VISITA_TERR_ID_VISITA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="VISITA_TERR" Relationship="Self.CHECKLIST_VISITA_TERR_FK" FromRole="CHECKLIST" ToRole="VISITA_TERR" />
+        </EntityType>
+        <EntityType Name="CLIENTE">
+          <Key>
+            <PropertyRef Name="RUT_CLI" />
+          </Key>
+          <Property Name="RUT_CLI" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DV_CLI" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RAZ_SOC_CLI" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MAIL_CLI" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="STAT_CLI" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TEL_CLI" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="EMPRESA_RUT_EMP" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="EMPRESA" Relationship="Self.CLIENTE_EMPRESA_FK" FromRole="CLIENTE" ToRole="EMPRESA" />
+          <NavigationProperty Name="CONTRATO" Relationship="Self.CONTRATO_CLIENTE_FK" FromRole="CLIENTE" ToRole="CONTRATO" />
+          <NavigationProperty Name="EMPLEADOS" Relationship="Self.EMPLEADOS_CLIENTE_FK" FromRole="CLIENTE" ToRole="EMPLEADOS" />
+          <NavigationProperty Name="SERVICIO" Relationship="Self.SERVICIO_CLIENTE_FK" FromRole="CLIENTE" ToRole="SERVICIO" />
+          <NavigationProperty Name="SUCURSAL" Relationship="Self.SUCURSAL_CLIENTE_FK" FromRole="CLIENTE" ToRole="SUCURSAL" />
+        </EntityType>
+        <EntityType Name="CONTRATO">
+          <Key>
+            <PropertyRef Name="ID_CONTRATO" />
+          </Key>
+          <Property Name="ID_CONTRATO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA_EMIS" Type="DateTime" Nullable="false" />
+          <Property Name="PAGO_CONT" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="VALID" Type="DateTime" Nullable="false" />
+          <Property Name="STATUS_CONT" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EMPRESA_RUT_EMP" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CLIENTE_RUT_CLI" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="CLIENTE" Relationship="Self.CONTRATO_CLIENTE_FK" FromRole="CONTRATO" ToRole="CLIENTE" />
+          <NavigationProperty Name="EMPRESA" Relationship="Self.CONTRATO_EMPRESA_FK" FromRole="CONTRATO" ToRole="EMPRESA" />
+          <NavigationProperty Name="DETALLE_SERV" Relationship="Self.DETALLE_SERV_CONTRATO_FK" FromRole="CONTRATO" ToRole="DETALLE_SERV" />
+        </EntityType>
+        <EntityType Name="DETALLE_CAP">
+          <Key>
+            <PropertyRef Name="ID_D_CAPA" />
+          </Key>
+          <Property Name="ID_D_CAPA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_PERSONAL" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_PROF_CAP" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ASISTE_PERS" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NOTA_PERS" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CAPACITACION_ID_CAP" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="CAPACITACION" Relationship="Self.DETALLE_CAP_CAPACITACION_FK" FromRole="DETALLE_CAP" ToRole="CAPACITACION" />
+        </EntityType>
+        <EntityType Name="DETALLE_FACT">
+          <Key>
+            <PropertyRef Name="ID_DET_FAC" />
+          </Key>
+          <Property Name="ID_DET_FAC" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TOT_CAP" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TOT_ASES" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TOT_VIST" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="SERV_ADIC" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="FACTURA_ID_FACT" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="MON_TOT_FACT" Type="Decimal" Precision="38" Scale="0" />
+          <NavigationProperty Name="FACTURA" Relationship="Self.DETALLE_FACT_FACTURA_FK" FromRole="DETALLE_FACT" ToRole="FACTURA" />
+        </EntityType>
+        <EntityType Name="DETALLE_SERV">
+          <Key>
+            <PropertyRef Name="ID_D_SERV" />
+          </Key>
+          <Property Name="ID_D_SERV" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TIPO_SERV" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NOM_SERV" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MENSUALIDAD_S" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PAGO_EXT" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ADICIONAL" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CONTRATO_ID_CONTRATO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="CONTRATO" Relationship="Self.DETALLE_SERV_CONTRATO_FK" FromRole="DETALLE_SERV" ToRole="CONTRATO" />
+        </EntityType>
+        <EntityType Name="EMPLEADOS">
+          <Key>
+            <PropertyRef Name="RUT_EMPL" />
+          </Key>
+          <Property Name="RUT_EMPL" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DV_EMPL" Type="String" MaxLength="5" FixedLength="false" Unicode="false" />
+          <Property Name="NOM_EMPL" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AP_EMPL" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CANT_CAP" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CLIENTE_RUT_CLI" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="STAT_EMPL" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ACCIDENTE" Relationship="Self.ACCIDENTE_EMPLEADOS_FK" FromRole="EMPLEADOS" ToRole="ACCIDENTE" />
+          <NavigationProperty Name="CLIENTE" Relationship="Self.EMPLEADOS_CLIENTE_FK" FromRole="EMPLEADOS" ToRole="CLIENTE" />
+        </EntityType>
+        <EntityType Name="EMPRESA">
+          <Key>
+            <PropertyRef Name="RUT_EMP" />
+          </Key>
+          <Property Name="RUT_EMP" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DV_EMP" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RAZ_SOC_EMP" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NOM_EMPRESA" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="CLIENTE" Relationship="Self.CLIENTE_EMPRESA_FK" FromRole="EMPRESA" ToRole="CLIENTE" />
+          <NavigationProperty Name="CONTRATO" Relationship="Self.CONTRATO_EMPRESA_FK" FromRole="EMPRESA" ToRole="CONTRATO" />
+          <NavigationProperty Name="PROFESIONAL" Relationship="Self.PROFESIONAL_EMPRESA_FK" FromRole="EMPRESA" ToRole="PROFESIONAL" />
+        </EntityType>
+        <EntityType Name="ESTADO">
+          <Key>
+            <PropertyRef Name="ID_ESTADO" />
+          </Key>
+          <Property Name="ID_ESTADO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="TICKET" Relationship="Self.TICKET_ESTADO_FK" FromRole="ESTADO" ToRole="TICKET" />
+        </EntityType>
+        <EntityType Name="FACTURA">
+          <Key>
+            <PropertyRef Name="ID_FACT" />
+          </Key>
+          <Property Name="ID_FACT" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA_EMISION" Type="DateTime" Nullable="false" />
+          <Property Name="RAZ_SOC_EMIS" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RUT_CLI_FACT" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RUT_EMIS" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DIRECCION_CLI" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MONTO_PAG" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="DETALLE_FACT" Relationship="Self.DETALLE_FACT_FACTURA_FK" FromRole="FACTURA" ToRole="DETALLE_FACT" />
+        </EntityType>
+        <EntityType Name="MENU_ROL">
+          <Key>
+            <PropertyRef Name="ID_MENU" />
+          </Key>
+          <Property Name="ID_MENU" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESC_MENU" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ROL_ID_ROL" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="ROL" Relationship="Self.MENU_ROL_ROL_FK" FromRole="MENU_ROL" ToRole="ROL" />
+        </EntityType>
+        <EntityType Name="OSDDMW_DIAGRAMS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NAME" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="LAST_UPDATE" Type="DateTime" Precision="6" />
+          <Property Name="GLOBAL_ID" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="DESIGN_ID" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="DESIGN_NAME" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="MODEL_ID" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="MODEL_NAME" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="SUBVIEW_ID" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="SUBVIEW_NAME" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="PARENT_ID" Type="String" MaxLength="70" FixedLength="false" Unicode="false" />
+          <Property Name="DIAGRAM_TYPE" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="LAYOUT" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="PROFESIONAL">
+          <Key>
+            <PropertyRef Name="RUT_PROF" />
+          </Key>
+          <Property Name="RUT_PROF" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DV_PROF" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NOM_PROF" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AP_PROF" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MAIL_PROF" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TEL_PROF" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="EMPRESA_RUT_EMP" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="STAT_PROF" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="AGENDA" Relationship="Self.AGENDA_PROFESIONAL_FK" FromRole="PROFESIONAL" ToRole="AGENDA" />
+          <NavigationProperty Name="EMPRESA" Relationship="Self.PROFESIONAL_EMPRESA_FK" FromRole="PROFESIONAL" ToRole="EMPRESA" />
+          <NavigationProperty Name="TICKET" Relationship="Self.TICKET_PROFESIONAL_FK" FromRole="PROFESIONAL" ToRole="TICKET" />
+        </EntityType>
+        <EntityType Name="REPORT_MENSUAL">
+          <Key>
+            <PropertyRef Name="ID_REPORT" />
+          </Key>
+          <Property Name="ID_REPORT" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CLIENTE_REP" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CANT_VISITA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CANT_CAP" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CANT_ASES" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CANT_LLAM" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NUEVAS_IMPL" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CANT_ACCID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CANT_MULT" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="MONTO_TOTAL_MUL" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ROL">
+          <Key>
+            <PropertyRef Name="ID_ROL" />
+          </Key>
+          <Property Name="ID_ROL" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESC_ROL" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="MENU_ROL" Relationship="Self.MENU_ROL_ROL_FK" FromRole="ROL" ToRole="MENU_ROL" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.USUARIO_ROL_FK" FromRole="ROL" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="SERV_DETALLE">
+          <Key>
+            <PropertyRef Name="ID_SERV_DETALLE" />
+          </Key>
+          <Property Name="ID_SERV_DETALLE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RUT_CLI_SERV" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="RUT_PROF_SERV" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="LUGAR" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TIPO_SERV" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="EN_CONTRATO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="SERVICIO_ID_SERV" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="ASESORIA" Relationship="Self.ASESORIA_SERV_DETALLE_FK" FromRole="SERV_DETALLE" ToRole="ASESORIA" />
+          <NavigationProperty Name="CAPACITACION" Relationship="Self.CAPACITACION_SERV_DETALLE_FK" FromRole="SERV_DETALLE" ToRole="CAPACITACION" />
+          <NavigationProperty Name="SERVICIO" Relationship="Self.SERV_DETALLE_SERVICIO_FK" FromRole="SERV_DETALLE" ToRole="SERVICIO" />
+          <NavigationProperty Name="VISITA_TERR" Relationship="Self.VISITA_TERR_SERV_DETALLE_FK" FromRole="SERV_DETALLE" ToRole="VISITA_TERR" />
+        </EntityType>
+        <EntityType Name="SERVICIO">
+          <Key>
+            <PropertyRef Name="ID_SERV" />
+          </Key>
+          <Property Name="ID_SERV" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOM_SERV" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="COSTO_SERV" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CLIENTE_RUT_CLI" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="AGENDA_ID_AGENDA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="AGENDA" Relationship="Self.SERVICIO_AGENDA_FK" FromRole="SERVICIO" ToRole="AGENDA" />
+          <NavigationProperty Name="CLIENTE" Relationship="Self.SERVICIO_CLIENTE_FK" FromRole="SERVICIO" ToRole="CLIENTE" />
+          <NavigationProperty Name="SERV_DETALLE" Relationship="Self.SERV_DETALLE_SERVICIO_FK" FromRole="SERVICIO" ToRole="SERV_DETALLE" />
+        </EntityType>
+        <EntityType Name="SUCURSAL">
+          <Key>
+            <PropertyRef Name="ID_SUC" />
+          </Key>
+          <Property Name="ID_SUC" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOMB_SUC" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DIRECCION_SUC" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CLIENTE_RUT_CLI" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="CLIENTE" Relationship="Self.SUCURSAL_CLIENTE_FK" FromRole="SUCURSAL" ToRole="CLIENTE" />
+        </EntityType>
+        <EntityType Name="TICKET">
+          <Key>
+            <PropertyRef Name="ID_TICKET" />
+          </Key>
+          <Property Name="ID_TICKET" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA_CREACION_TICKET" Type="DateTime" Nullable="false" />
+          <Property Name="FECHA_CIERRE_TICKET" Type="DateTime" />
+          <Property Name="ID_ESTADO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ID_USUARIO" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="500" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ID_PROFESIONAL" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="SOLUCION" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="ESTADO" Relationship="Self.TICKET_ESTADO_FK" FromRole="TICKET" ToRole="ESTADO" />
+          <NavigationProperty Name="PROFESIONAL" Relationship="Self.TICKET_PROFESIONAL_FK" FromRole="TICKET" ToRole="PROFESIONAL" />
+          <NavigationProperty Name="USUARIO" Relationship="Self.TICKET_USUARIO_FK" FromRole="TICKET" ToRole="USUARIO" />
+        </EntityType>
+        <EntityType Name="TIPO_CAP">
+          <Key>
+            <PropertyRef Name="ID_TIP_CAP" />
+          </Key>
+          <Property Name="ID_TIP_CAP" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TIPO_CAPAC" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CAPACITACION_ID_CAP" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="CAPACITACION" Relationship="Self.CAPACITACION_TIP_CAP_FK" FromRole="TIPO_CAP" ToRole="CAPACITACION" />
+        </EntityType>
+        <EntityType Name="USUARIO">
+          <Key>
+            <PropertyRef Name="ID_USER" />
+          </Key>
+          <Property Name="ID_USER" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="NOM_USER" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="AP_USER" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MAIL_USER" Type="String" MaxLength="35" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TELM_USER" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="STATUS_USER" Type="String" MaxLength="15" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ROL_ID_ROL" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PASSWD" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PASSWD2" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="ROL" Relationship="Self.USUARIO_ROL_FK" FromRole="USUARIO" ToRole="ROL" />
+          <NavigationProperty Name="TICKET" Relationship="Self.TICKET_USUARIO_FK" FromRole="USUARIO" ToRole="TICKET" />
+        </EntityType>
+        <EntityType Name="VISITA_TERR">
+          <Key>
+            <PropertyRef Name="ID_VISITA" />
+          </Key>
+          <Property Name="ID_VISITA" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="FECHA_VISITA" Type="DateTime" Nullable="false" />
+          <Property Name="TIPO_VISITA" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="RESOL_VISIT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SERV_DETALLE_ID_SERV_DETALLE" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <NavigationProperty Name="CHECKLIST" Relationship="Self.CHECKLIST_VISITA_TERR_FK" FromRole="VISITA_TERR" ToRole="CHECKLIST" />
+          <NavigationProperty Name="SERV_DETALLE" Relationship="Self.VISITA_TERR_SERV_DETALLE_FK" FromRole="VISITA_TERR" ToRole="SERV_DETALLE" />
+        </EntityType>
+        <Association Name="ACCIDENTE_EMPLEADOS_FK">
+          <End Role="EMPLEADOS" Type="Self.EMPLEADOS" Multiplicity="1" />
+          <End Role="ACCIDENTE" Type="Self.ACCIDENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPLEADOS">
+              <PropertyRef Name="RUT_EMPL" />
+            </Principal>
+            <Dependent Role="ACCIDENTE">
+              <PropertyRef Name="EMPLEADOS_RUT_EMPL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AGENDA_PROFESIONAL_FK">
+          <End Role="PROFESIONAL" Type="Self.PROFESIONAL" Multiplicity="1" />
+          <End Role="AGENDA" Type="Self.AGENDA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROFESIONAL">
+              <PropertyRef Name="RUT_PROF" />
+            </Principal>
+            <Dependent Role="AGENDA">
+              <PropertyRef Name="PROFESIONAL_RUT_PROF" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SERVICIO_AGENDA_FK">
+          <End Role="AGENDA" Type="Self.AGENDA" Multiplicity="1" />
+          <End Role="SERVICIO" Type="Self.SERVICIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AGENDA">
+              <PropertyRef Name="ID_AGENDA" />
+            </Principal>
+            <Dependent Role="SERVICIO">
+              <PropertyRef Name="AGENDA_ID_AGENDA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="ASESORIA_SERV_DETALLE_FK">
+          <End Role="SERV_DETALLE" Type="Self.SERV_DETALLE" Multiplicity="1" />
+          <End Role="ASESORIA" Type="Self.ASESORIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SERV_DETALLE">
+              <PropertyRef Name="ID_SERV_DETALLE" />
+            </Principal>
+            <Dependent Role="ASESORIA">
+              <PropertyRef Name="SERV_DETALLE_ID_SERV_DETALLE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CAPACITACION_SERV_DETALLE_FK">
+          <End Role="SERV_DETALLE" Type="Self.SERV_DETALLE" Multiplicity="1" />
+          <End Role="CAPACITACION" Type="Self.CAPACITACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SERV_DETALLE">
+              <PropertyRef Name="ID_SERV_DETALLE" />
+            </Principal>
+            <Dependent Role="CAPACITACION">
+              <PropertyRef Name="SERV_DETALLE_ID_SERV_DETALLE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CAPACITACION_TIP_CAP_FK">
+          <End Role="TIPO_CAP" Type="Self.TIPO_CAP" Multiplicity="1" />
+          <End Role="CAPACITACION" Type="Self.CAPACITACION" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TIPO_CAP">
+              <PropertyRef Name="ID_TIP_CAP" />
+            </Principal>
+            <Dependent Role="CAPACITACION">
+              <PropertyRef Name="TIPO_CAP_ID_TIP_CAP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DETALLE_CAP_CAPACITACION_FK">
+          <End Role="CAPACITACION" Type="Self.CAPACITACION" Multiplicity="1" />
+          <End Role="DETALLE_CAP" Type="Self.DETALLE_CAP" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CAPACITACION">
+              <PropertyRef Name="ID_CAP" />
+            </Principal>
+            <Dependent Role="DETALLE_CAP">
+              <PropertyRef Name="CAPACITACION_ID_CAP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CHECKLIST_VISITA_TERR_FK">
+          <End Role="VISITA_TERR" Type="Self.VISITA_TERR" Multiplicity="1" />
+          <End Role="CHECKLIST" Type="Self.CHECKLIST" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VISITA_TERR">
+              <PropertyRef Name="ID_VISITA" />
+            </Principal>
+            <Dependent Role="CHECKLIST">
+              <PropertyRef Name="VISITA_TERR_ID_VISITA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CLIENTE_EMPRESA_FK">
+          <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="1" />
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPRESA">
+              <PropertyRef Name="RUT_EMP" />
+            </Principal>
+            <Dependent Role="CLIENTE">
+              <PropertyRef Name="EMPRESA_RUT_EMP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CONTRATO_CLIENTE_FK">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+          <End Role="CONTRATO" Type="Self.CONTRATO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="RUT_CLI" />
+            </Principal>
+            <Dependent Role="CONTRATO">
+              <PropertyRef Name="CLIENTE_RUT_CLI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EMPLEADOS_CLIENTE_FK">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+          <End Role="EMPLEADOS" Type="Self.EMPLEADOS" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="RUT_CLI" />
+            </Principal>
+            <Dependent Role="EMPLEADOS">
+              <PropertyRef Name="CLIENTE_RUT_CLI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SERVICIO_CLIENTE_FK">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+          <End Role="SERVICIO" Type="Self.SERVICIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="RUT_CLI" />
+            </Principal>
+            <Dependent Role="SERVICIO">
+              <PropertyRef Name="CLIENTE_RUT_CLI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SUCURSAL_CLIENTE_FK">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+          <End Role="SUCURSAL" Type="Self.SUCURSAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="RUT_CLI" />
+            </Principal>
+            <Dependent Role="SUCURSAL">
+              <PropertyRef Name="CLIENTE_RUT_CLI" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="CONTRATO_EMPRESA_FK">
+          <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="1" />
+          <End Role="CONTRATO" Type="Self.CONTRATO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPRESA">
+              <PropertyRef Name="RUT_EMP" />
+            </Principal>
+            <Dependent Role="CONTRATO">
+              <PropertyRef Name="EMPRESA_RUT_EMP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DETALLE_SERV_CONTRATO_FK">
+          <End Role="CONTRATO" Type="Self.CONTRATO" Multiplicity="1" />
+          <End Role="DETALLE_SERV" Type="Self.DETALLE_SERV" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CONTRATO">
+              <PropertyRef Name="ID_CONTRATO" />
+            </Principal>
+            <Dependent Role="DETALLE_SERV">
+              <PropertyRef Name="CONTRATO_ID_CONTRATO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="DETALLE_FACT_FACTURA_FK">
+          <End Role="FACTURA" Type="Self.FACTURA" Multiplicity="1" />
+          <End Role="DETALLE_FACT" Type="Self.DETALLE_FACT" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FACTURA">
+              <PropertyRef Name="ID_FACT" />
+            </Principal>
+            <Dependent Role="DETALLE_FACT">
+              <PropertyRef Name="FACTURA_ID_FACT" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="PROFESIONAL_EMPRESA_FK">
+          <End Role="EMPRESA" Type="Self.EMPRESA" Multiplicity="1" />
+          <End Role="PROFESIONAL" Type="Self.PROFESIONAL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EMPRESA">
+              <PropertyRef Name="RUT_EMP" />
+            </Principal>
+            <Dependent Role="PROFESIONAL">
+              <PropertyRef Name="EMPRESA_RUT_EMP" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TICKET_ESTADO_FK">
+          <End Role="ESTADO" Type="Self.ESTADO" Multiplicity="1" />
+          <End Role="TICKET" Type="Self.TICKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ESTADO">
+              <PropertyRef Name="ID_ESTADO" />
+            </Principal>
+            <Dependent Role="TICKET">
+              <PropertyRef Name="ID_ESTADO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="MENU_ROL_ROL_FK">
+          <End Role="ROL" Type="Self.ROL" Multiplicity="1" />
+          <End Role="MENU_ROL" Type="Self.MENU_ROL" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROL">
+              <PropertyRef Name="ID_ROL" />
+            </Principal>
+            <Dependent Role="MENU_ROL">
+              <PropertyRef Name="ROL_ID_ROL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TICKET_PROFESIONAL_FK">
+          <End Role="PROFESIONAL" Type="Self.PROFESIONAL" Multiplicity="1" />
+          <End Role="TICKET" Type="Self.TICKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="PROFESIONAL">
+              <PropertyRef Name="RUT_PROF" />
+            </Principal>
+            <Dependent Role="TICKET">
+              <PropertyRef Name="ID_PROFESIONAL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="USUARIO_ROL_FK">
+          <End Role="ROL" Type="Self.ROL" Multiplicity="1" />
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="ROL">
+              <PropertyRef Name="ID_ROL" />
+            </Principal>
+            <Dependent Role="USUARIO">
+              <PropertyRef Name="ROL_ID_ROL" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="SERV_DETALLE_SERVICIO_FK">
+          <End Role="SERVICIO" Type="Self.SERVICIO" Multiplicity="1" />
+          <End Role="SERV_DETALLE" Type="Self.SERV_DETALLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SERVICIO">
+              <PropertyRef Name="ID_SERV" />
+            </Principal>
+            <Dependent Role="SERV_DETALLE">
+              <PropertyRef Name="SERVICIO_ID_SERV" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="VISITA_TERR_SERV_DETALLE_FK">
+          <End Role="SERV_DETALLE" Type="Self.SERV_DETALLE" Multiplicity="1" />
+          <End Role="VISITA_TERR" Type="Self.VISITA_TERR" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SERV_DETALLE">
+              <PropertyRef Name="ID_SERV_DETALLE" />
+            </Principal>
+            <Dependent Role="VISITA_TERR">
+              <PropertyRef Name="SERV_DETALLE_ID_SERV_DETALLE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="TICKET_USUARIO_FK">
+          <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
+          <End Role="TICKET" Type="Self.TICKET" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="USUARIO">
+              <PropertyRef Name="ID_USER" />
+            </Principal>
+            <Dependent Role="TICKET">
+              <PropertyRef Name="ID_USUARIO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="NMADeskEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ACCIDENTE" EntityType="Self.ACCIDENTE" />
+          <EntitySet Name="AGENDA" EntityType="Self.AGENDA" />
+          <EntitySet Name="ASESORIA" EntityType="Self.ASESORIA" />
+          <EntitySet Name="AUDITORIAUSER" EntityType="Self.AUDITORIAUSER" />
+          <EntitySet Name="CAPACITACION" EntityType="Self.CAPACITACION" />
+          <EntitySet Name="CHECKLIST" EntityType="Self.CHECKLIST" />
+          <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" />
+          <EntitySet Name="CONTRATO" EntityType="Self.CONTRATO" />
+          <EntitySet Name="DETALLE_CAP" EntityType="Self.DETALLE_CAP" />
+          <EntitySet Name="DETALLE_FACT" EntityType="Self.DETALLE_FACT" />
+          <EntitySet Name="DETALLE_SERV" EntityType="Self.DETALLE_SERV" />
+          <EntitySet Name="EMPLEADOS" EntityType="Self.EMPLEADOS" />
+          <EntitySet Name="EMPRESA" EntityType="Self.EMPRESA" />
+          <EntitySet Name="ESTADO" EntityType="Self.ESTADO" />
+          <EntitySet Name="FACTURA" EntityType="Self.FACTURA" />
+          <EntitySet Name="MENU_ROL" EntityType="Self.MENU_ROL" />
+          <EntitySet Name="OSDDMW_DIAGRAMS" EntityType="Self.OSDDMW_DIAGRAMS" />
+          <EntitySet Name="PROFESIONAL" EntityType="Self.PROFESIONAL" />
+          <EntitySet Name="REPORT_MENSUAL" EntityType="Self.REPORT_MENSUAL" />
+          <EntitySet Name="ROL" EntityType="Self.ROL" />
+          <EntitySet Name="SERV_DETALLE" EntityType="Self.SERV_DETALLE" />
+          <EntitySet Name="SERVICIO" EntityType="Self.SERVICIO" />
+          <EntitySet Name="SUCURSAL" EntityType="Self.SUCURSAL" />
+          <EntitySet Name="TICKET" EntityType="Self.TICKET" />
+          <EntitySet Name="TIPO_CAP" EntityType="Self.TIPO_CAP" />
+          <EntitySet Name="USUARIO" EntityType="Self.USUARIO" />
+          <EntitySet Name="VISITA_TERR" EntityType="Self.VISITA_TERR" />
+          <AssociationSet Name="ACCIDENTE_EMPLEADOS_FK" Association="Self.ACCIDENTE_EMPLEADOS_FK">
+            <End Role="EMPLEADOS" EntitySet="EMPLEADOS" />
+            <End Role="ACCIDENTE" EntitySet="ACCIDENTE" />
+          </AssociationSet>
+          <AssociationSet Name="AGENDA_PROFESIONAL_FK" Association="Self.AGENDA_PROFESIONAL_FK">
+            <End Role="PROFESIONAL" EntitySet="PROFESIONAL" />
+            <End Role="AGENDA" EntitySet="AGENDA" />
+          </AssociationSet>
+          <AssociationSet Name="SERVICIO_AGENDA_FK" Association="Self.SERVICIO_AGENDA_FK">
+            <End Role="AGENDA" EntitySet="AGENDA" />
+            <End Role="SERVICIO" EntitySet="SERVICIO" />
+          </AssociationSet>
+          <AssociationSet Name="ASESORIA_SERV_DETALLE_FK" Association="Self.ASESORIA_SERV_DETALLE_FK">
+            <End Role="SERV_DETALLE" EntitySet="SERV_DETALLE" />
+            <End Role="ASESORIA" EntitySet="ASESORIA" />
+          </AssociationSet>
+          <AssociationSet Name="CAPACITACION_SERV_DETALLE_FK" Association="Self.CAPACITACION_SERV_DETALLE_FK">
+            <End Role="SERV_DETALLE" EntitySet="SERV_DETALLE" />
+            <End Role="CAPACITACION" EntitySet="CAPACITACION" />
+          </AssociationSet>
+          <AssociationSet Name="CAPACITACION_TIP_CAP_FK" Association="Self.CAPACITACION_TIP_CAP_FK">
+            <End Role="TIPO_CAP" EntitySet="TIPO_CAP" />
+            <End Role="CAPACITACION" EntitySet="CAPACITACION" />
+          </AssociationSet>
+          <AssociationSet Name="DETALLE_CAP_CAPACITACION_FK" Association="Self.DETALLE_CAP_CAPACITACION_FK">
+            <End Role="CAPACITACION" EntitySet="CAPACITACION" />
+            <End Role="DETALLE_CAP" EntitySet="DETALLE_CAP" />
+          </AssociationSet>
+          <AssociationSet Name="CHECKLIST_VISITA_TERR_FK" Association="Self.CHECKLIST_VISITA_TERR_FK">
+            <End Role="VISITA_TERR" EntitySet="VISITA_TERR" />
+            <End Role="CHECKLIST" EntitySet="CHECKLIST" />
+          </AssociationSet>
+          <AssociationSet Name="CLIENTE_EMPRESA_FK" Association="Self.CLIENTE_EMPRESA_FK">
+            <End Role="EMPRESA" EntitySet="EMPRESA" />
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+          </AssociationSet>
+          <AssociationSet Name="CONTRATO_CLIENTE_FK" Association="Self.CONTRATO_CLIENTE_FK">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="CONTRATO" EntitySet="CONTRATO" />
+          </AssociationSet>
+          <AssociationSet Name="EMPLEADOS_CLIENTE_FK" Association="Self.EMPLEADOS_CLIENTE_FK">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="EMPLEADOS" EntitySet="EMPLEADOS" />
+          </AssociationSet>
+          <AssociationSet Name="SERVICIO_CLIENTE_FK" Association="Self.SERVICIO_CLIENTE_FK">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="SERVICIO" EntitySet="SERVICIO" />
+          </AssociationSet>
+          <AssociationSet Name="SUCURSAL_CLIENTE_FK" Association="Self.SUCURSAL_CLIENTE_FK">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="SUCURSAL" EntitySet="SUCURSAL" />
+          </AssociationSet>
+          <AssociationSet Name="CONTRATO_EMPRESA_FK" Association="Self.CONTRATO_EMPRESA_FK">
+            <End Role="EMPRESA" EntitySet="EMPRESA" />
+            <End Role="CONTRATO" EntitySet="CONTRATO" />
+          </AssociationSet>
+          <AssociationSet Name="DETALLE_SERV_CONTRATO_FK" Association="Self.DETALLE_SERV_CONTRATO_FK">
+            <End Role="CONTRATO" EntitySet="CONTRATO" />
+            <End Role="DETALLE_SERV" EntitySet="DETALLE_SERV" />
+          </AssociationSet>
+          <AssociationSet Name="DETALLE_FACT_FACTURA_FK" Association="Self.DETALLE_FACT_FACTURA_FK">
+            <End Role="FACTURA" EntitySet="FACTURA" />
+            <End Role="DETALLE_FACT" EntitySet="DETALLE_FACT" />
+          </AssociationSet>
+          <AssociationSet Name="PROFESIONAL_EMPRESA_FK" Association="Self.PROFESIONAL_EMPRESA_FK">
+            <End Role="EMPRESA" EntitySet="EMPRESA" />
+            <End Role="PROFESIONAL" EntitySet="PROFESIONAL" />
+          </AssociationSet>
+          <AssociationSet Name="TICKET_ESTADO_FK" Association="Self.TICKET_ESTADO_FK">
+            <End Role="ESTADO" EntitySet="ESTADO" />
+            <End Role="TICKET" EntitySet="TICKET" />
+          </AssociationSet>
+          <AssociationSet Name="MENU_ROL_ROL_FK" Association="Self.MENU_ROL_ROL_FK">
+            <End Role="ROL" EntitySet="ROL" />
+            <End Role="MENU_ROL" EntitySet="MENU_ROL" />
+          </AssociationSet>
+          <AssociationSet Name="TICKET_PROFESIONAL_FK" Association="Self.TICKET_PROFESIONAL_FK">
+            <End Role="PROFESIONAL" EntitySet="PROFESIONAL" />
+            <End Role="TICKET" EntitySet="TICKET" />
+          </AssociationSet>
+          <AssociationSet Name="USUARIO_ROL_FK" Association="Self.USUARIO_ROL_FK">
+            <End Role="ROL" EntitySet="ROL" />
+            <End Role="USUARIO" EntitySet="USUARIO" />
+          </AssociationSet>
+          <AssociationSet Name="SERV_DETALLE_SERVICIO_FK" Association="Self.SERV_DETALLE_SERVICIO_FK">
+            <End Role="SERVICIO" EntitySet="SERVICIO" />
+            <End Role="SERV_DETALLE" EntitySet="SERV_DETALLE" />
+          </AssociationSet>
+          <AssociationSet Name="VISITA_TERR_SERV_DETALLE_FK" Association="Self.VISITA_TERR_SERV_DETALLE_FK">
+            <End Role="SERV_DETALLE" EntitySet="SERV_DETALLE" />
+            <End Role="VISITA_TERR" EntitySet="VISITA_TERR" />
+          </AssociationSet>
+          <AssociationSet Name="TICKET_USUARIO_FK" Association="Self.TICKET_USUARIO_FK">
+            <End Role="USUARIO" EntitySet="USUARIO" />
+            <End Role="TICKET" EntitySet="TICKET" />
+          </AssociationSet>
+          <FunctionImport Name="SP_ACTIVATE_TICKET">
+            <Parameter Name="V_ID_TICKET" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_CREAR_TICKET">
+            <Parameter Name="V_FECHA_CREACION_TICKET" Mode="In" Type="DateTime" />
+            <Parameter Name="V_FECHA_CIERRE_TICKET" Mode="In" Type="DateTime" />
+            <Parameter Name="V_ID_ESTADO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_ID_USUARIO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_DESCRIPCION" Mode="In" Type="String" />
+            <Parameter Name="V_ID_PROFESIONAL" Mode="In" Type="Decimal" />
+            <Parameter Name="V_SOLUCION" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="SP_DESACTIVATE_TICKET">
+            <Parameter Name="V_ID_TICKET" Mode="In" Type="Decimal" />
+          </FunctionImport>
+          <FunctionImport Name="SP_UPDATE_TICKET">
+            <Parameter Name="V_ID_TICKET" Mode="In" Type="Decimal" />
+            <Parameter Name="V_FECHA_CREACION_TICKET" Mode="In" Type="DateTime" />
+            <Parameter Name="V_FECHA_CIERRE_TICKET" Mode="In" Type="DateTime" />
+            <Parameter Name="V_ID_ESTADO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_ID_USUARIO" Mode="In" Type="Decimal" />
+            <Parameter Name="V_DESCRIPCION" Mode="In" Type="String" />
+            <Parameter Name="V_ID_PROFESIONAL" Mode="In" Type="Decimal" />
+            <Parameter Name="V_SOLUCION" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="NMADeskEntities">
+          <EntitySetMapping Name="ACCIDENTE">
+            <EntityTypeMapping TypeName="Model.ACCIDENTE">
+              <MappingFragment StoreEntitySet="ACCIDENTE">
+                <ScalarProperty Name="ID_ACCIDENTE" ColumnName="ID_ACCIDENTE" />
+                <ScalarProperty Name="SEVERIDAD_ACC" ColumnName="SEVERIDAD_ACC" />
+                <ScalarProperty Name="CANT_AFECTADO" ColumnName="CANT_AFECTADO" />
+                <ScalarProperty Name="DESC_ACCID" ColumnName="DESC_ACCID" />
+                <ScalarProperty Name="EMPLEADOS_RUT_EMPL" ColumnName="EMPLEADOS_RUT_EMPL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AGENDA">
+            <EntityTypeMapping TypeName="Model.AGENDA">
+              <MappingFragment StoreEntitySet="AGENDA">
+                <ScalarProperty Name="ID_AGENDA" ColumnName="ID_AGENDA" />
+                <ScalarProperty Name="FECHA_AGEN" ColumnName="FECHA_AGEN" />
+                <ScalarProperty Name="FECHA_REALI" ColumnName="FECHA_REALI" />
+                <ScalarProperty Name="LUGAR" ColumnName="LUGAR" />
+                <ScalarProperty Name="PROFESIONAL_RUT_PROF" ColumnName="PROFESIONAL_RUT_PROF" />
+                <ScalarProperty Name="STAT_AGEN" ColumnName="STAT_AGEN" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ASESORIA">
+            <EntityTypeMapping TypeName="Model.ASESORIA">
+              <MappingFragment StoreEntitySet="ASESORIA">
+                <ScalarProperty Name="ID_ASESORIA" ColumnName="ID_ASESORIA" />
+                <ScalarProperty Name="TIPO_ASESORIA" ColumnName="TIPO_ASESORIA" />
+                <ScalarProperty Name="DESC_ASESORIA" ColumnName="DESC_ASESORIA" />
+                <ScalarProperty Name="SERV_DETALLE_ID_SERV_DETALLE" ColumnName="SERV_DETALLE_ID_SERV_DETALLE" />
+                <ScalarProperty Name="ID_SERV_DETALLE" ColumnName="ID_SERV_DETALLE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AUDITORIAUSER">
+            <EntityTypeMapping TypeName="Model.AUDITORIAUSER">
+              <MappingFragment StoreEntitySet="AUDITORIAUSER">
+                <ScalarProperty Name="ID_AUDITORIA" ColumnName="ID_AUDITORIA" />
+                <ScalarProperty Name="DETALLE_AUDIT" ColumnName="DETALLE_AUDIT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CAPACITACION">
+            <EntityTypeMapping TypeName="Model.CAPACITACION">
+              <MappingFragment StoreEntitySet="CAPACITACION">
+                <ScalarProperty Name="ID_CAP" ColumnName="ID_CAP" />
+                <ScalarProperty Name="FECHA_CAP" ColumnName="FECHA_CAP" />
+                <ScalarProperty Name="TEMA_CAP" ColumnName="TEMA_CAP" />
+                <ScalarProperty Name="SERV_DETALLE_ID_SERV_DETALLE" ColumnName="SERV_DETALLE_ID_SERV_DETALLE" />
+                <ScalarProperty Name="TIPO_CAP_ID_TIP_CAP" ColumnName="TIPO_CAP_ID_TIP_CAP" />
+                <ScalarProperty Name="STAT_CAP" ColumnName="STAT_CAP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CHECKLIST">
+            <EntityTypeMapping TypeName="Model.CHECKLIST">
+              <MappingFragment StoreEntitySet="CHECKLIST">
+                <ScalarProperty Name="ID_CHECKLIST" ColumnName="ID_CHECKLIST" />
+                <ScalarProperty Name="RUBRO_CLI" ColumnName="RUBRO_CLI" />
+                <ScalarProperty Name="RESUL_VISI" ColumnName="RESUL_VISI" />
+                <ScalarProperty Name="MEJORAS" ColumnName="MEJORAS" />
+                <ScalarProperty Name="FECHA_CHECKLIST" ColumnName="FECHA_CHECKLIST" />
+                <ScalarProperty Name="ACT_NECES" ColumnName="ACT_NECES" />
+                <ScalarProperty Name="PROBLEM_SEG" ColumnName="PROBLEM_SEG" />
+                <ScalarProperty Name="VISITA_TERR_ID_VISITA" ColumnName="VISITA_TERR_ID_VISITA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CLIENTE">
+            <EntityTypeMapping TypeName="Model.CLIENTE">
+              <MappingFragment StoreEntitySet="CLIENTE">
+                <ScalarProperty Name="RUT_CLI" ColumnName="RUT_CLI" />
+                <ScalarProperty Name="DV_CLI" ColumnName="DV_CLI" />
+                <ScalarProperty Name="RAZ_SOC_CLI" ColumnName="RAZ_SOC_CLI" />
+                <ScalarProperty Name="MAIL_CLI" ColumnName="MAIL_CLI" />
+                <ScalarProperty Name="STAT_CLI" ColumnName="STAT_CLI" />
+                <ScalarProperty Name="TEL_CLI" ColumnName="TEL_CLI" />
+                <ScalarProperty Name="EMPRESA_RUT_EMP" ColumnName="EMPRESA_RUT_EMP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CONTRATO">
+            <EntityTypeMapping TypeName="Model.CONTRATO">
+              <MappingFragment StoreEntitySet="CONTRATO">
+                <ScalarProperty Name="ID_CONTRATO" ColumnName="ID_CONTRATO" />
+                <ScalarProperty Name="FECHA_EMIS" ColumnName="FECHA_EMIS" />
+                <ScalarProperty Name="PAGO_CONT" ColumnName="PAGO_CONT" />
+                <ScalarProperty Name="VALID" ColumnName="VALID" />
+                <ScalarProperty Name="STATUS_CONT" ColumnName="STATUS_CONT" />
+                <ScalarProperty Name="EMPRESA_RUT_EMP" ColumnName="EMPRESA_RUT_EMP" />
+                <ScalarProperty Name="CLIENTE_RUT_CLI" ColumnName="CLIENTE_RUT_CLI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DETALLE_CAP">
+            <EntityTypeMapping TypeName="Model.DETALLE_CAP">
+              <MappingFragment StoreEntitySet="DETALLE_CAP">
+                <ScalarProperty Name="ID_D_CAPA" ColumnName="ID_D_CAPA" />
+                <ScalarProperty Name="ID_PERSONAL" ColumnName="ID_PERSONAL" />
+                <ScalarProperty Name="ID_PROF_CAP" ColumnName="ID_PROF_CAP" />
+                <ScalarProperty Name="ASISTE_PERS" ColumnName="ASISTE_PERS" />
+                <ScalarProperty Name="NOTA_PERS" ColumnName="NOTA_PERS" />
+                <ScalarProperty Name="CAPACITACION_ID_CAP" ColumnName="CAPACITACION_ID_CAP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DETALLE_FACT">
+            <EntityTypeMapping TypeName="Model.DETALLE_FACT">
+              <MappingFragment StoreEntitySet="DETALLE_FACT">
+                <ScalarProperty Name="ID_DET_FAC" ColumnName="ID_DET_FAC" />
+                <ScalarProperty Name="TOT_CAP" ColumnName="TOT_CAP" />
+                <ScalarProperty Name="TOT_ASES" ColumnName="TOT_ASES" />
+                <ScalarProperty Name="TOT_VIST" ColumnName="TOT_VIST" />
+                <ScalarProperty Name="SERV_ADIC" ColumnName="SERV_ADIC" />
+                <ScalarProperty Name="FACTURA_ID_FACT" ColumnName="FACTURA_ID_FACT" />
+                <ScalarProperty Name="MON_TOT_FACT" ColumnName="MON_TOT_FACT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DETALLE_SERV">
+            <EntityTypeMapping TypeName="Model.DETALLE_SERV">
+              <MappingFragment StoreEntitySet="DETALLE_SERV">
+                <ScalarProperty Name="ID_D_SERV" ColumnName="ID_D_SERV" />
+                <ScalarProperty Name="TIPO_SERV" ColumnName="TIPO_SERV" />
+                <ScalarProperty Name="NOM_SERV" ColumnName="NOM_SERV" />
+                <ScalarProperty Name="MENSUALIDAD_S" ColumnName="MENSUALIDAD_S" />
+                <ScalarProperty Name="PAGO_EXT" ColumnName="PAGO_EXT" />
+                <ScalarProperty Name="ADICIONAL" ColumnName="ADICIONAL" />
+                <ScalarProperty Name="CONTRATO_ID_CONTRATO" ColumnName="CONTRATO_ID_CONTRATO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPLEADOS">
+            <EntityTypeMapping TypeName="Model.EMPLEADOS">
+              <MappingFragment StoreEntitySet="EMPLEADOS">
+                <ScalarProperty Name="RUT_EMPL" ColumnName="RUT_EMPL" />
+                <ScalarProperty Name="DV_EMPL" ColumnName="DV_EMPL" />
+                <ScalarProperty Name="NOM_EMPL" ColumnName="NOM_EMPL" />
+                <ScalarProperty Name="AP_EMPL" ColumnName="AP_EMPL" />
+                <ScalarProperty Name="CANT_CAP" ColumnName="CANT_CAP" />
+                <ScalarProperty Name="CLIENTE_RUT_CLI" ColumnName="CLIENTE_RUT_CLI" />
+                <ScalarProperty Name="STAT_EMPL" ColumnName="STAT_EMPL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EMPRESA">
+            <EntityTypeMapping TypeName="Model.EMPRESA">
+              <MappingFragment StoreEntitySet="EMPRESA">
+                <ScalarProperty Name="RUT_EMP" ColumnName="RUT_EMP" />
+                <ScalarProperty Name="DV_EMP" ColumnName="DV_EMP" />
+                <ScalarProperty Name="RAZ_SOC_EMP" ColumnName="RAZ_SOC_EMP" />
+                <ScalarProperty Name="NOM_EMPRESA" ColumnName="NOM_EMPRESA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ESTADO">
+            <EntityTypeMapping TypeName="Model.ESTADO">
+              <MappingFragment StoreEntitySet="ESTADO">
+                <ScalarProperty Name="ID_ESTADO" ColumnName="ID_ESTADO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FACTURA">
+            <EntityTypeMapping TypeName="Model.FACTURA">
+              <MappingFragment StoreEntitySet="FACTURA">
+                <ScalarProperty Name="ID_FACT" ColumnName="ID_FACT" />
+                <ScalarProperty Name="FECHA_EMISION" ColumnName="FECHA_EMISION" />
+                <ScalarProperty Name="RAZ_SOC_EMIS" ColumnName="RAZ_SOC_EMIS" />
+                <ScalarProperty Name="RUT_CLI_FACT" ColumnName="RUT_CLI_FACT" />
+                <ScalarProperty Name="RUT_EMIS" ColumnName="RUT_EMIS" />
+                <ScalarProperty Name="DIRECCION_CLI" ColumnName="DIRECCION_CLI" />
+                <ScalarProperty Name="MONTO_PAG" ColumnName="MONTO_PAG" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MENU_ROL">
+            <EntityTypeMapping TypeName="Model.MENU_ROL">
+              <MappingFragment StoreEntitySet="MENU_ROL">
+                <ScalarProperty Name="ID_MENU" ColumnName="ID_MENU" />
+                <ScalarProperty Name="DESC_MENU" ColumnName="DESC_MENU" />
+                <ScalarProperty Name="ROL_ID_ROL" ColumnName="ROL_ID_ROL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="OSDDMW_DIAGRAMS">
+            <EntityTypeMapping TypeName="Model.OSDDMW_DIAGRAMS">
+              <MappingFragment StoreEntitySet="OSDDMW_DIAGRAMS">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="NAME" ColumnName="NAME" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="LAST_UPDATE" ColumnName="LAST_UPDATE" />
+                <ScalarProperty Name="GLOBAL_ID" ColumnName="GLOBAL_ID" />
+                <ScalarProperty Name="DESIGN_ID" ColumnName="DESIGN_ID" />
+                <ScalarProperty Name="DESIGN_NAME" ColumnName="DESIGN_NAME" />
+                <ScalarProperty Name="MODEL_ID" ColumnName="MODEL_ID" />
+                <ScalarProperty Name="MODEL_NAME" ColumnName="MODEL_NAME" />
+                <ScalarProperty Name="SUBVIEW_ID" ColumnName="SUBVIEW_ID" />
+                <ScalarProperty Name="SUBVIEW_NAME" ColumnName="SUBVIEW_NAME" />
+                <ScalarProperty Name="PARENT_ID" ColumnName="PARENT_ID" />
+                <ScalarProperty Name="DIAGRAM_TYPE" ColumnName="DIAGRAM_TYPE" />
+                <ScalarProperty Name="LAYOUT" ColumnName="LAYOUT" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PROFESIONAL">
+            <EntityTypeMapping TypeName="Model.PROFESIONAL">
+              <MappingFragment StoreEntitySet="PROFESIONAL">
+                <ScalarProperty Name="RUT_PROF" ColumnName="RUT_PROF" />
+                <ScalarProperty Name="DV_PROF" ColumnName="DV_PROF" />
+                <ScalarProperty Name="NOM_PROF" ColumnName="NOM_PROF" />
+                <ScalarProperty Name="AP_PROF" ColumnName="AP_PROF" />
+                <ScalarProperty Name="MAIL_PROF" ColumnName="MAIL_PROF" />
+                <ScalarProperty Name="TEL_PROF" ColumnName="TEL_PROF" />
+                <ScalarProperty Name="EMPRESA_RUT_EMP" ColumnName="EMPRESA_RUT_EMP" />
+                <ScalarProperty Name="STAT_PROF" ColumnName="STAT_PROF" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="REPORT_MENSUAL">
+            <EntityTypeMapping TypeName="Model.REPORT_MENSUAL">
+              <MappingFragment StoreEntitySet="REPORT_MENSUAL">
+                <ScalarProperty Name="ID_REPORT" ColumnName="ID_REPORT" />
+                <ScalarProperty Name="CLIENTE_REP" ColumnName="CLIENTE_REP" />
+                <ScalarProperty Name="CANT_VISITA" ColumnName="CANT_VISITA" />
+                <ScalarProperty Name="CANT_CAP" ColumnName="CANT_CAP" />
+                <ScalarProperty Name="CANT_ASES" ColumnName="CANT_ASES" />
+                <ScalarProperty Name="CANT_LLAM" ColumnName="CANT_LLAM" />
+                <ScalarProperty Name="NUEVAS_IMPL" ColumnName="NUEVAS_IMPL" />
+                <ScalarProperty Name="CANT_ACCID" ColumnName="CANT_ACCID" />
+                <ScalarProperty Name="CANT_MULT" ColumnName="CANT_MULT" />
+                <ScalarProperty Name="MONTO_TOTAL_MUL" ColumnName="MONTO_TOTAL_MUL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ROL">
+            <EntityTypeMapping TypeName="Model.ROL">
+              <MappingFragment StoreEntitySet="ROL">
+                <ScalarProperty Name="ID_ROL" ColumnName="ID_ROL" />
+                <ScalarProperty Name="DESC_ROL" ColumnName="DESC_ROL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SERV_DETALLE">
+            <EntityTypeMapping TypeName="Model.SERV_DETALLE">
+              <MappingFragment StoreEntitySet="SERV_DETALLE">
+                <ScalarProperty Name="ID_SERV_DETALLE" ColumnName="ID_SERV_DETALLE" />
+                <ScalarProperty Name="RUT_CLI_SERV" ColumnName="RUT_CLI_SERV" />
+                <ScalarProperty Name="RUT_PROF_SERV" ColumnName="RUT_PROF_SERV" />
+                <ScalarProperty Name="LUGAR" ColumnName="LUGAR" />
+                <ScalarProperty Name="TIPO_SERV" ColumnName="TIPO_SERV" />
+                <ScalarProperty Name="EN_CONTRATO" ColumnName="EN_CONTRATO" />
+                <ScalarProperty Name="SERVICIO_ID_SERV" ColumnName="SERVICIO_ID_SERV" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SERVICIO">
+            <EntityTypeMapping TypeName="Model.SERVICIO">
+              <MappingFragment StoreEntitySet="SERVICIO">
+                <ScalarProperty Name="ID_SERV" ColumnName="ID_SERV" />
+                <ScalarProperty Name="NOM_SERV" ColumnName="NOM_SERV" />
+                <ScalarProperty Name="COSTO_SERV" ColumnName="COSTO_SERV" />
+                <ScalarProperty Name="CLIENTE_RUT_CLI" ColumnName="CLIENTE_RUT_CLI" />
+                <ScalarProperty Name="AGENDA_ID_AGENDA" ColumnName="AGENDA_ID_AGENDA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SUCURSAL">
+            <EntityTypeMapping TypeName="Model.SUCURSAL">
+              <MappingFragment StoreEntitySet="SUCURSAL">
+                <ScalarProperty Name="ID_SUC" ColumnName="ID_SUC" />
+                <ScalarProperty Name="NOMB_SUC" ColumnName="NOMB_SUC" />
+                <ScalarProperty Name="DIRECCION_SUC" ColumnName="DIRECCION_SUC" />
+                <ScalarProperty Name="CLIENTE_RUT_CLI" ColumnName="CLIENTE_RUT_CLI" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TICKET">
+            <EntityTypeMapping TypeName="Model.TICKET">
+              <MappingFragment StoreEntitySet="TICKET">
+                <ScalarProperty Name="ID_TICKET" ColumnName="ID_TICKET" />
+                <ScalarProperty Name="FECHA_CREACION_TICKET" ColumnName="FECHA_CREACION_TICKET" />
+                <ScalarProperty Name="FECHA_CIERRE_TICKET" ColumnName="FECHA_CIERRE_TICKET" />
+                <ScalarProperty Name="ID_ESTADO" ColumnName="ID_ESTADO" />
+                <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="ID_PROFESIONAL" ColumnName="ID_PROFESIONAL" />
+                <ScalarProperty Name="SOLUCION" ColumnName="SOLUCION" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TIPO_CAP">
+            <EntityTypeMapping TypeName="Model.TIPO_CAP">
+              <MappingFragment StoreEntitySet="TIPO_CAP">
+                <ScalarProperty Name="ID_TIP_CAP" ColumnName="ID_TIP_CAP" />
+                <ScalarProperty Name="TIPO_CAPAC" ColumnName="TIPO_CAPAC" />
+                <ScalarProperty Name="CAPACITACION_ID_CAP" ColumnName="CAPACITACION_ID_CAP" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIO">
+            <EntityTypeMapping TypeName="Model.USUARIO">
+              <MappingFragment StoreEntitySet="USUARIO">
+                <ScalarProperty Name="ID_USER" ColumnName="ID_USER" />
+                <ScalarProperty Name="NOM_USER" ColumnName="NOM_USER" />
+                <ScalarProperty Name="AP_USER" ColumnName="AP_USER" />
+                <ScalarProperty Name="MAIL_USER" ColumnName="MAIL_USER" />
+                <ScalarProperty Name="TELM_USER" ColumnName="TELM_USER" />
+                <ScalarProperty Name="STATUS_USER" ColumnName="STATUS_USER" />
+                <ScalarProperty Name="ROL_ID_ROL" ColumnName="ROL_ID_ROL" />
+                <ScalarProperty Name="PASSWD" ColumnName="PASSWD" />
+                <ScalarProperty Name="PASSWD2" ColumnName="PASSWD2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VISITA_TERR">
+            <EntityTypeMapping TypeName="Model.VISITA_TERR">
+              <MappingFragment StoreEntitySet="VISITA_TERR">
+                <ScalarProperty Name="ID_VISITA" ColumnName="ID_VISITA" />
+                <ScalarProperty Name="FECHA_VISITA" ColumnName="FECHA_VISITA" />
+                <ScalarProperty Name="TIPO_VISITA" ColumnName="TIPO_VISITA" />
+                <ScalarProperty Name="RESOL_VISIT" ColumnName="RESOL_VISIT" />
+                <ScalarProperty Name="SERV_DETALLE_ID_SERV_DETALLE" ColumnName="SERV_DETALLE_ID_SERV_DETALLE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="SP_ACTIVATE_TICKET" FunctionName="Model.Store.SP_ACTIVATE_TICKET" />
+          <FunctionImportMapping FunctionImportName="SP_CREAR_TICKET" FunctionName="Model.Store.SP_CREAR_TICKET" />
+          <FunctionImportMapping FunctionImportName="SP_DESACTIVATE_TICKET" FunctionName="Model.Store.SP_DESACTIVATE_TICKET" />
+          <FunctionImportMapping FunctionImportName="SP_UPDATE_TICKET" FunctionName="Model.Store.SP_UPDATE_TICKET" />
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

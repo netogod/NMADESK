@@ -1,0 +1,6 @@
+C:\NMADesk\NMADesk\NMADesk\obj\Release\NMADesk.csprojAssemblyReference.cache
+C:\NMADesk\NMADesk\NMADesk\obj\Release\NMADesk.FormLogin.resources
+C:\NMADesk\NMADesk\NMADesk\obj\Release\NMADesk.FrmMain.resources
+C:\NMADesk\NMADesk\NMADesk\obj\Release\NMADesk.Properties.Resources.resources
+C:\NMADesk\NMADesk\NMADesk\obj\Release\NMADesk.csproj.GenerateResource.cache
+C:\NMADesk\NMADesk\NMADesk\obj\Release\NMADesk.csproj.CoreCompileInputs.cache
