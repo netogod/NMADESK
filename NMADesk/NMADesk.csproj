@@ -152,7 +152,13 @@
     <Compile Include="BD\SUCURSAL.cs">
       <DependentUpon>NMADesk.tt</DependentUpon>
     </Compile>
+    <Compile Include="BD\TICKET.cs">
+      <DependentUpon>NMADesk.tt</DependentUpon>
+    </Compile>
     <Compile Include="BD\TIPO_CAP.cs">
+      <DependentUpon>NMADesk.tt</DependentUpon>
+    </Compile>
+    <Compile Include="BD\TIPO_TICKET.cs">
       <DependentUpon>NMADesk.tt</DependentUpon>
     </Compile>
     <Compile Include="BD\USUARIO.cs">

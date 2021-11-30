@@ -16,12 +16,12 @@ namespace NMADesk.BD
     {
         public ESTADO()
         {
-           
+            this.TICKET = new HashSet<TICKET>();
         }
     
         public decimal ID_ESTADO { get; set; }
         public string NOMBRE { get; set; }
     
-       
+        public virtual ICollection<TICKET> TICKET { get; set; }
     }
 }

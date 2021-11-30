@@ -4,6 +4,7 @@
     <EntitySetMapping Name="ACCIDENTE">
       <EntityTypeMapping TypeName="Model.ACCIDENTE">
         <MappingFragment StoreEntitySet="ACCIDENTE">
+          <ScalarProperty Name="STAT_ACCID" ColumnName="STAT_ACCID" />
           <ScalarProperty Name="ID_ACCIDENTE" ColumnName="ID_ACCIDENTE" />
           <ScalarProperty Name="SEVERIDAD_ACC" ColumnName="SEVERIDAD_ACC" />
           <ScalarProperty Name="CANT_AFECTADO" ColumnName="CANT_AFECTADO" />
@@ -21,17 +22,6 @@
           <ScalarProperty Name="LUGAR" ColumnName="LUGAR" />
           <ScalarProperty Name="PROFESIONAL_RUT_PROF" ColumnName="PROFESIONAL_RUT_PROF" />
           <ScalarProperty Name="STAT_AGEN" ColumnName="STAT_AGEN" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
-    <EntitySetMapping Name="ASESORIA">
-      <EntityTypeMapping TypeName="Model.ASESORIA">
-        <MappingFragment StoreEntitySet="ASESORIA">
-          <ScalarProperty Name="ID_ASESORIA" ColumnName="ID_ASESORIA" />
-          <ScalarProperty Name="TIPO_ASESORIA" ColumnName="TIPO_ASESORIA" />
-          <ScalarProperty Name="DESC_ASESORIA" ColumnName="DESC_ASESORIA" />
-          <ScalarProperty Name="SERV_DETALLE_ID_SERV_DETALLE" ColumnName="SERV_DETALLE_ID_SERV_DETALLE" />
-          <ScalarProperty Name="ID_SERV_DETALLE" ColumnName="ID_SERV_DETALLE" />
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
@@ -278,20 +268,6 @@
         </MappingFragment>
       </EntityTypeMapping>
     </EntitySetMapping>
-    <EntitySetMapping Name="TICKET">
-      <EntityTypeMapping TypeName="Model.TICKET">
-        <MappingFragment StoreEntitySet="TICKET">
-          <ScalarProperty Name="ID_TICKET" ColumnName="ID_TICKET" />
-          <ScalarProperty Name="FECHA_CREACION_TICKET" ColumnName="FECHA_CREACION_TICKET" />
-          <ScalarProperty Name="FECHA_CIERRE_TICKET" ColumnName="FECHA_CIERRE_TICKET" />
-          <ScalarProperty Name="ID_ESTADO" ColumnName="ID_ESTADO" />
-          <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
-          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
-          <ScalarProperty Name="ID_PROFESIONAL" ColumnName="ID_PROFESIONAL" />
-          <ScalarProperty Name="SOLUCION" ColumnName="SOLUCION" />
-        </MappingFragment>
-      </EntityTypeMapping>
-    </EntitySetMapping>
     <EntitySetMapping Name="TIPO_CAP">
       <EntityTypeMapping TypeName="Model.TIPO_CAP">
         <MappingFragment StoreEntitySet="TIPO_CAP">
@@ -328,8 +304,74 @@
       </EntityTypeMapping>
     </EntitySetMapping>
     <FunctionImportMapping FunctionImportName="SP_ACTIVATE_TICKET" FunctionName="Model.Store.SP_ACTIVATE_TICKET" />
-    <FunctionImportMapping FunctionImportName="SP_CREAR_TICKET" FunctionName="Model.Store.SP_CREAR_TICKET" />
     <FunctionImportMapping FunctionImportName="SP_DESACTIVATE_TICKET" FunctionName="Model.Store.SP_DESACTIVATE_TICKET" />
+    <FunctionImportMapping FunctionImportName="SP_ACTIVATE_ACCIDENTE" FunctionName="Model.Store.SP_ACTIVATE_ACCIDENTE" />
+    <FunctionImportMapping FunctionImportName="SP_ACTIVATE_AGENDA" FunctionName="Model.Store.SP_ACTIVATE_AGENDA" />
+    <FunctionImportMapping FunctionImportName="SP_ACTIVATE_ASESORIA" FunctionName="Model.Store.SP_ACTIVATE_ASESORIA" />
+    <FunctionImportMapping FunctionImportName="SP_ACTIVATE_CAP" FunctionName="Model.Store.SP_ACTIVATE_CAP" />
+    <FunctionImportMapping FunctionImportName="SP_ACTIVATE_CLIENTE" FunctionName="Model.Store.SP_ACTIVATE_CLIENTE" />
+    <FunctionImportMapping FunctionImportName="SP_ACTIVATE_EMPLEADO" FunctionName="Model.Store.SP_ACTIVATE_EMPLEADO" />
+    <FunctionImportMapping FunctionImportName="SP_ACTIVATE_PROFESIONAL" FunctionName="Model.Store.SP_ACTIVATE_PROFESIONAL" />
+    <FunctionImportMapping FunctionImportName="SP_ACTIVATE_USER" FunctionName="Model.Store.SP_ACTIVATE_USER" />
+    <FunctionImportMapping FunctionImportName="SP_CREAR_ACCIDENTE" FunctionName="Model.Store.SP_CREAR_ACCIDENTE" />
+    <FunctionImportMapping FunctionImportName="SP_CREAR_AGENDA" FunctionName="Model.Store.SP_CREAR_AGENDA" />
+    <FunctionImportMapping FunctionImportName="SP_CREAR_ASESORIA" FunctionName="Model.Store.SP_CREAR_ASESORIA" />
+    <FunctionImportMapping FunctionImportName="SP_CREAR_CAP" FunctionName="Model.Store.SP_CREAR_CAP" />
+    <FunctionImportMapping FunctionImportName="SP_CREAR_CLIENTE" FunctionName="Model.Store.SP_CREAR_CLIENTE" />
+    <FunctionImportMapping FunctionImportName="SP_CREAR_EMPLEADO" FunctionName="Model.Store.SP_CREAR_EMPLEADO" />
+    <FunctionImportMapping FunctionImportName="SP_CREAR_PROFESIONAL" FunctionName="Model.Store.SP_CREAR_PROFESIONAL" />
+    <FunctionImportMapping FunctionImportName="SP_CREAR_USER" FunctionName="Model.Store.SP_CREAR_USER" />
+    <FunctionImportMapping FunctionImportName="SP_DESACTIVATE_ACCIDENTE" FunctionName="Model.Store.SP_DESACTIVATE_ACCIDENTE" />
+    <FunctionImportMapping FunctionImportName="SP_DESACTIVATE_AGENDA" FunctionName="Model.Store.SP_DESACTIVATE_AGENDA" />
+    <FunctionImportMapping FunctionImportName="SP_DESACTIVATE_ASESORIA" FunctionName="Model.Store.SP_DESACTIVATE_ASESORIA" />
+    <FunctionImportMapping FunctionImportName="SP_DESACTIVATE_CAP" FunctionName="Model.Store.SP_DESACTIVATE_CAP" />
+    <FunctionImportMapping FunctionImportName="SP_DESACTIVATE_CLIENTE" FunctionName="Model.Store.SP_DESACTIVATE_CLIENTE" />
+    <FunctionImportMapping FunctionImportName="SP_DESACTIVATE_EMPLEADO" FunctionName="Model.Store.SP_DESACTIVATE_EMPLEADO" />
+    <FunctionImportMapping FunctionImportName="SP_DESACTIVATE_PROFESIONAL" FunctionName="Model.Store.SP_DESACTIVATE_PROFESIONAL" />
+    <FunctionImportMapping FunctionImportName="SP_DESACTIVATE_USER" FunctionName="Model.Store.SP_DESACTIVATE_USER" />
+    <FunctionImportMapping FunctionImportName="SP_UPDATE_ACCIDENTE" FunctionName="Model.Store.SP_UPDATE_ACCIDENTE" />
+    <FunctionImportMapping FunctionImportName="SP_UPDATE_AGENDA" FunctionName="Model.Store.SP_UPDATE_AGENDA" />
+    <FunctionImportMapping FunctionImportName="SP_UPDATE_ASESORIA" FunctionName="Model.Store.SP_UPDATE_ASESORIA" />
+    <FunctionImportMapping FunctionImportName="SP_UPDATE_CAP" FunctionName="Model.Store.SP_UPDATE_CAP" />
+    <FunctionImportMapping FunctionImportName="SP_UPDATE_CLIENTE" FunctionName="Model.Store.SP_UPDATE_CLIENTE" />
+    <FunctionImportMapping FunctionImportName="SP_UPDATE_EMPLEADO" FunctionName="Model.Store.SP_UPDATE_EMPLEADO" />
+    <FunctionImportMapping FunctionImportName="SP_UPDATE_PROFESIONAL" FunctionName="Model.Store.SP_UPDATE_PROFESIONAL" />
+    <FunctionImportMapping FunctionImportName="SP_UPDATE_USER" FunctionName="Model.Store.SP_UPDATE_USER" />
+    <EntitySetMapping Name="TICKET">
+      <EntityTypeMapping TypeName="Model.TICKET">
+        <MappingFragment StoreEntitySet="TICKET">
+          <ScalarProperty Name="SOLUCION" ColumnName="SOLUCION" />
+          <ScalarProperty Name="ID_PROFESIONAL" ColumnName="ID_PROFESIONAL" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="ID_TIPO" ColumnName="ID_TIPO" />
+          <ScalarProperty Name="ID_USUARIO" ColumnName="ID_USUARIO" />
+          <ScalarProperty Name="ID_ESTADO" ColumnName="ID_ESTADO" />
+          <ScalarProperty Name="FECHA_CIERRE_TICKET" ColumnName="FECHA_CIERRE_TICKET" />
+          <ScalarProperty Name="FECHA_CREACION_TICKET" ColumnName="FECHA_CREACION_TICKET" />
+          <ScalarProperty Name="ID_TICKET" ColumnName="ID_TICKET" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TIPO_TICKET">
+      <EntityTypeMapping TypeName="Model.TIPO_TICKET">
+        <MappingFragment StoreEntitySet="TIPO_TICKET">
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="ID_TIPO" ColumnName="ID_TIPO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_CREAR_TICKET" FunctionName="Model.Store.SP_CREAR_TICKET" />
     <FunctionImportMapping FunctionImportName="SP_UPDATE_TICKET" FunctionName="Model.Store.SP_UPDATE_TICKET" />
+    <EntitySetMapping Name="ASESORIA">
+      <EntityTypeMapping TypeName="Model.ASESORIA">
+        <MappingFragment StoreEntitySet="ASESORIA">
+          <ScalarProperty Name="STAT_ASESORIA" ColumnName="STAT_ASESORIA" />
+          <ScalarProperty Name="SERV_DETALLE_ID_SERV_DETALLE" ColumnName="SERV_DETALLE_ID_SERV_DETALLE" />
+          <ScalarProperty Name="DESC_ASESORIA" ColumnName="DESC_ASESORIA" />
+          <ScalarProperty Name="TIPO_ASESORIA" ColumnName="TIPO_ASESORIA" />
+          <ScalarProperty Name="ID_ASESORIA" ColumnName="ID_ASESORIA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
   </EntityContainerMapping>
 </Mapping>

@@ -21,11 +21,7 @@ namespace NMADesk
             InitializeComponent();
         }
 
-      
-        private void Form1_Load(object sender, EventArgs e)
-        {
-           
-        }
+     
         [DllImport("user32.dll", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("User32.dll", EntryPoint = "SendMessage")]

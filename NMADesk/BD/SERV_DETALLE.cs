@@ -16,9 +16,9 @@ namespace NMADesk.BD
     {
         public SERV_DETALLE()
         {
-            this.ASESORIA = new HashSet<ASESORIA>();
             this.CAPACITACION = new HashSet<CAPACITACION>();
             this.VISITA_TERR = new HashSet<VISITA_TERR>();
+            this.ASESORIA = new HashSet<ASESORIA>();
         }
     
         public decimal ID_SERV_DETALLE { get; set; }
@@ -29,9 +29,9 @@ namespace NMADesk.BD
         public decimal EN_CONTRATO { get; set; }
         public decimal SERVICIO_ID_SERV { get; set; }
     
-        public virtual ICollection<ASESORIA> ASESORIA { get; set; }
         public virtual ICollection<CAPACITACION> CAPACITACION { get; set; }
         public virtual SERVICIO SERVICIO { get; set; }
         public virtual ICollection<VISITA_TERR> VISITA_TERR { get; set; }
+        public virtual ICollection<ASESORIA> ASESORIA { get; set; }
     }
 }

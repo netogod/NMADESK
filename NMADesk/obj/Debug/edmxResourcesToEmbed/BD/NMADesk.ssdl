@@ -9,6 +9,7 @@
     <Property Name="CANT_AFECTADO" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="DESC_ACCID" Type="varchar2" MaxLength="150" Nullable="false" />
     <Property Name="EMPLEADOS_RUT_EMPL" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="STAT_ACCID" Type="varchar2" MaxLength="10" Nullable="false" />
   </EntityType>
   <EntityType Name="AGENDA">
     <Key>
@@ -29,7 +30,7 @@
     <Property Name="TIPO_ASESORIA" Type="varchar2" MaxLength="30" Nullable="false" />
     <Property Name="DESC_ASESORIA" Type="varchar2" MaxLength="60" Nullable="false" />
     <Property Name="SERV_DETALLE_ID_SERV_DETALLE" Type="number" Precision="38" Scale="0" Nullable="false" />
-    <Property Name="ID_SERV_DETALLE" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="STAT_ASESORIA" Type="varchar2" MaxLength="20" Nullable="false" />
   </EntityType>
   <EntityType Name="AUDITORIAUSER">
     <Key>
@@ -260,9 +261,10 @@
     </Key>
     <Property Name="ID_TICKET" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="FECHA_CREACION_TICKET" Type="date" Nullable="false" />
-    <Property Name="FECHA_CIERRE_TICKET" Type="date" />
+    <Property Name="FECHA_CIERRE_TICKET" Type="date" Nullable="false" />
     <Property Name="ID_ESTADO" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="ID_USUARIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="ID_TIPO" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="DESCRIPCION" Type="varchar2" MaxLength="500" Nullable="false" />
     <Property Name="ID_PROFESIONAL" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="SOLUCION" Type="varchar2" MaxLength="500" />
@@ -274,6 +276,13 @@
     <Property Name="ID_TIP_CAP" Type="number" Precision="38" Scale="0" Nullable="false" />
     <Property Name="TIPO_CAPAC" Type="varchar2" MaxLength="30" Nullable="false" />
     <Property Name="CAPACITACION_ID_CAP" Type="number" Precision="38" Scale="0" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TIPO_TICKET">
+    <Key>
+      <PropertyRef Name="ID_TIPO" />
+    </Key>
+    <Property Name="ID_TIPO" Type="number" Precision="38" Scale="0" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar2" MaxLength="20" Nullable="false" />
   </EntityType>
   <EntityType Name="USUARIO">
     <Key>
@@ -551,6 +560,18 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Association Name="TICKET_TIPO_FK">
+    <End Role="TIPO_TICKET" Type="Self.TIPO_TICKET" Multiplicity="1" />
+    <End Role="TICKET" Type="Self.TICKET" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TIPO_TICKET">
+        <PropertyRef Name="ID_TIPO" />
+      </Principal>
+      <Dependent Role="TICKET">
+        <PropertyRef Name="ID_TIPO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
   <Association Name="TICKET_USUARIO_FK">
     <End Role="USUARIO" Type="Self.USUARIO" Multiplicity="1" />
     <End Role="TICKET" Type="Self.TICKET" Multiplicity="*" />
@@ -587,30 +608,204 @@
       </Dependent>
     </ReferentialConstraint>
   </Association>
+  <Function Name="SP_ACTIVATE_ACCIDENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
+    <Parameter Name="V_ID_ACCIDENTE" Type="number" Mode="In" />
+  </Function>
+  <Function Name="SP_ACTIVATE_AGENDA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
+    <Parameter Name="V_ID_AGENDA" Type="number" Mode="In" />
+  </Function>
+  <Function Name="SP_ACTIVATE_ASESORIA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
+    <Parameter Name="V_ID_ASESORIA" Type="number" Mode="In" />
+  </Function>
+  <Function Name="SP_ACTIVATE_CAP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
+    <Parameter Name="V_ID_CAP" Type="number" Mode="In" />
+  </Function>
+  <Function Name="SP_ACTIVATE_CLIENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
+    <Parameter Name="V_RUT_CLI" Type="number" Mode="In" />
+  </Function>
+  <Function Name="SP_ACTIVATE_EMPLEADO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
+    <Parameter Name="V_RUT_EMPL" Type="number" Mode="In" />
+  </Function>
+  <Function Name="SP_ACTIVATE_PROFESIONAL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
+    <Parameter Name="V_RUT_PROF" Type="number" Mode="In" />
+  </Function>
   <Function Name="SP_ACTIVATE_TICKET" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
     <Parameter Name="V_ID_TICKET" Type="number" Mode="In" />
   </Function>
+  <Function Name="SP_ACTIVATE_USER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
+    <Parameter Name="V_ID_USER" Type="number" Mode="In" />
+  </Function>
+  <Function Name="SP_CREAR_ACCIDENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
+    <Parameter Name="V_SEVERIDAD_ACC" Type="varchar2" Mode="In" />
+    <Parameter Name="V_CANT_AFECTADO" Type="number" Mode="In" />
+    <Parameter Name="V_DESC_ACCID" Type="varchar2" Mode="In" />
+    <Parameter Name="V_EMPLEADOS_RUT_EMPL" Type="number" Mode="In" />
+    <Parameter Name="V_STAT_ACCID" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SP_CREAR_AGENDA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
+    <Parameter Name="V_ID_AGENDA" Type="number" Mode="In" />
+    <Parameter Name="V_FECHA_AGEN" Type="date" Mode="In" />
+    <Parameter Name="V_FECHA_REALI" Type="date" Mode="In" />
+    <Parameter Name="V_LUGAR" Type="varchar2" Mode="In" />
+    <Parameter Name="V_PROFESIONAL_PROF_RUT" Type="number" Mode="In" />
+    <Parameter Name="V_STAT_AGEN" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SP_CREAR_ASESORIA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
+    <Parameter Name="V_TIPO_ASESORIA" Type="varchar2" Mode="In" />
+    <Parameter Name="V_DESC_ASESORIA" Type="varchar2" Mode="In" />
+    <Parameter Name="V_SERV_DETALLE_ID_SERV_DETALLE" Type="number" Mode="In" />
+    <Parameter Name="V_STAT_ASESORIA" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SP_CREAR_CAP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
+    <Parameter Name="V_FECHA_CAP" Type="date" Mode="In" />
+    <Parameter Name="V_TEMA_CAP" Type="varchar2" Mode="In" />
+    <Parameter Name="V_SERV_DETALLE_ID_SERV_DETALLE" Type="number" Mode="In" />
+    <Parameter Name="V_TIPO_CAP_ID_TIP_CAP" Type="number" Mode="In" />
+    <Parameter Name="V_STAT_CAP" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SP_CREAR_CLIENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
+    <Parameter Name="V_RUT_CLI" Type="number" Mode="In" />
+    <Parameter Name="V_DV_CLI" Type="varchar2" Mode="In" />
+    <Parameter Name="V_RAZ_SOC_CLI" Type="varchar2" Mode="In" />
+    <Parameter Name="V_MAIL_CLI" Type="varchar2" Mode="In" />
+    <Parameter Name="V_STAT_CLI" Type="varchar2" Mode="In" />
+    <Parameter Name="V_TEL_CLI" Type="number" Mode="In" />
+    <Parameter Name="V_EMPRESA_RUT_EMP" Type="number" Mode="In" />
+  </Function>
+  <Function Name="SP_CREAR_EMPLEADO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
+    <Parameter Name="V_RUT_EMPL" Type="number" Mode="In" />
+    <Parameter Name="V_DV_EMPL" Type="varchar2" Mode="In" />
+    <Parameter Name="V_NOM_EMPL" Type="varchar2" Mode="In" />
+    <Parameter Name="V_AP_EMPL" Type="varchar2" Mode="In" />
+    <Parameter Name="V_CANT_CAP" Type="number" Mode="In" />
+    <Parameter Name="V_CLIENTE_RUT_CLI" Type="number" Mode="In" />
+    <Parameter Name="V_STAT_EMPL" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SP_CREAR_PROFESIONAL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
+    <Parameter Name="V_RUT_PROF" Type="number" Mode="In" />
+    <Parameter Name="V_DV_PROF" Type="varchar2" Mode="In" />
+    <Parameter Name="V_NOM_PROF" Type="varchar2" Mode="In" />
+    <Parameter Name="V_AP_PROF" Type="varchar2" Mode="In" />
+    <Parameter Name="V_MAIL_PROF" Type="varchar2" Mode="In" />
+    <Parameter Name="V_TEL_PROF" Type="number" Mode="In" />
+    <Parameter Name="V_EMPRESA_RUT_EMP" Type="number" Mode="In" />
+    <Parameter Name="V_STAT_PROF" Type="varchar2" Mode="In" />
+  </Function>
   <Function Name="SP_CREAR_TICKET" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
-    <Parameter Name="V_FECHA_CREACION_TICKET" Type="date" Mode="In" />
-    <Parameter Name="V_FECHA_CIERRE_TICKET" Type="date" Mode="In" />
+    <Parameter Name="V_ID_TICKET" Type="number" Mode="In" />
     <Parameter Name="V_ID_ESTADO" Type="number" Mode="In" />
     <Parameter Name="V_ID_USUARIO" Type="number" Mode="In" />
+    <Parameter Name="V_ID_TIPO" Type="number" Mode="In" />
     <Parameter Name="V_DESCRIPCION" Type="varchar2" Mode="In" />
     <Parameter Name="V_ID_PROFESIONAL" Type="number" Mode="In" />
-    <Parameter Name="V_SOLUCION" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SP_CREAR_USER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
+    <Parameter Name="V_NOM_USER" Type="varchar2" Mode="In" />
+    <Parameter Name="V_AP_USER" Type="varchar2" Mode="In" />
+    <Parameter Name="V_MAIL_USER" Type="varchar2" Mode="In" />
+    <Parameter Name="V_TELM_USER" Type="number" Mode="In" />
+    <Parameter Name="V_STATUS_USER" Type="varchar2" Mode="In" />
+    <Parameter Name="V_ROL_ID" Type="number" Mode="In" />
+    <Parameter Name="V_PASSWD" Type="varchar2" Mode="In" />
+    <Parameter Name="V_PASSWD2" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SP_DESACTIVATE_ACCIDENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
+    <Parameter Name="V_ID_ACCIDENTE" Type="number" Mode="In" />
+  </Function>
+  <Function Name="SP_DESACTIVATE_AGENDA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
+    <Parameter Name="V_ID_AGENDA" Type="number" Mode="In" />
+  </Function>
+  <Function Name="SP_DESACTIVATE_ASESORIA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
+    <Parameter Name="V_ID_ASESORIA" Type="number" Mode="In" />
+  </Function>
+  <Function Name="SP_DESACTIVATE_CAP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
+    <Parameter Name="V_ID_CAP" Type="number" Mode="In" />
+  </Function>
+  <Function Name="SP_DESACTIVATE_CLIENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
+    <Parameter Name="V_RUT_CLI" Type="number" Mode="In" />
+  </Function>
+  <Function Name="SP_DESACTIVATE_EMPLEADO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
+    <Parameter Name="V_RUT_EMPL" Type="number" Mode="In" />
+  </Function>
+  <Function Name="SP_DESACTIVATE_PROFESIONAL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
+    <Parameter Name="V_RUT_PROF" Type="number" Mode="In" />
   </Function>
   <Function Name="SP_DESACTIVATE_TICKET" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
     <Parameter Name="V_ID_TICKET" Type="number" Mode="In" />
   </Function>
+  <Function Name="SP_DESACTIVATE_USER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
+    <Parameter Name="V_ID_USER" Type="number" Mode="In" />
+  </Function>
+  <Function Name="SP_UPDATE_ACCIDENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
+    <Parameter Name="V_ID_ACCIDENTE" Type="number" Mode="In" />
+    <Parameter Name="V_SEVERIDAD_ACC" Type="varchar2" Mode="In" />
+    <Parameter Name="V_CANT_AFECTADO" Type="number" Mode="In" />
+    <Parameter Name="V_DESC_ACCID" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SP_UPDATE_AGENDA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
+    <Parameter Name="V_ID_AGENDA" Type="number" Mode="In" />
+    <Parameter Name="V_FECHA_AGEN" Type="date" Mode="In" />
+    <Parameter Name="V_FECHA_REALI" Type="date" Mode="In" />
+    <Parameter Name="V_LUGAR" Type="varchar2" Mode="In" />
+    <Parameter Name="V_STAT_AGEN" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SP_UPDATE_ASESORIA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
+    <Parameter Name="V_ID_ASESORIA" Type="number" Mode="In" />
+    <Parameter Name="V_TIPO_ASESORIA" Type="varchar2" Mode="In" />
+    <Parameter Name="V_DESC_ASESORIA" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SP_UPDATE_CAP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
+    <Parameter Name="V_ID_CAP" Type="number" Mode="In" />
+    <Parameter Name="V_FECHA_CAP" Type="date" Mode="In" />
+    <Parameter Name="V_TEMA_CAP" Type="varchar2" Mode="In" />
+    <Parameter Name="V_SERV_DETALLE_ID_SERV_DETALLE" Type="varchar2" Mode="In" />
+    <Parameter Name="V_TIPO_CAP_ID_TIP_CAP" Type="number" Mode="In" />
+    <Parameter Name="V_STAT_CAP" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SP_UPDATE_CLIENTE" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
+    <Parameter Name="V_RUT_CLI" Type="number" Mode="In" />
+    <Parameter Name="V_DV_CLI" Type="varchar2" Mode="In" />
+    <Parameter Name="V_RAZ_SOC_CLI" Type="varchar2" Mode="In" />
+    <Parameter Name="V_MAIL_CLI" Type="varchar2" Mode="In" />
+    <Parameter Name="V_STAT_CLI" Type="varchar2" Mode="In" />
+    <Parameter Name="V_TEL_CLI" Type="number" Mode="In" />
+    <Parameter Name="V_EMPRESA_RUT_EMP" Type="number" Mode="In" />
+  </Function>
+  <Function Name="SP_UPDATE_EMPLEADO" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
+    <Parameter Name="V_RUT_EMPL" Type="number" Mode="In" />
+    <Parameter Name="V_DV_EMPL" Type="varchar2" Mode="In" />
+    <Parameter Name="V_NOM_EMPL" Type="varchar2" Mode="In" />
+    <Parameter Name="V_AP_EMPL" Type="varchar2" Mode="In" />
+    <Parameter Name="V_CANT_CAP" Type="number" Mode="In" />
+    <Parameter Name="V_CLIENTE_RUT_CLI" Type="number" Mode="In" />
+  </Function>
+  <Function Name="SP_UPDATE_PROFESIONAL" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
+    <Parameter Name="V_RUT_PROF" Type="number" Mode="In" />
+    <Parameter Name="V_NOM_PROF" Type="varchar2" Mode="In" />
+    <Parameter Name="V_AP_PROF" Type="varchar2" Mode="In" />
+    <Parameter Name="V_MAIL_PROF" Type="varchar2" Mode="In" />
+    <Parameter Name="V_TEL_PROF" Type="number" Mode="In" />
+    <Parameter Name="V_EMPRESA_RUT_EMP" Type="number" Mode="In" />
+    <Parameter Name="V_STAT_PROF" Type="varchar2" Mode="In" />
+  </Function>
   <Function Name="SP_UPDATE_TICKET" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
     <Parameter Name="V_ID_TICKET" Type="number" Mode="In" />
-    <Parameter Name="V_FECHA_CREACION_TICKET" Type="date" Mode="In" />
-    <Parameter Name="V_FECHA_CIERRE_TICKET" Type="date" Mode="In" />
     <Parameter Name="V_ID_ESTADO" Type="number" Mode="In" />
     <Parameter Name="V_ID_USUARIO" Type="number" Mode="In" />
     <Parameter Name="V_DESCRIPCION" Type="varchar2" Mode="In" />
     <Parameter Name="V_ID_PROFESIONAL" Type="number" Mode="In" />
     <Parameter Name="V_SOLUCION" Type="varchar2" Mode="In" />
+  </Function>
+  <Function Name="SP_UPDATE_USER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="ADMIN">
+    <Parameter Name="V_ID_USER" Type="number" Mode="In" />
+    <Parameter Name="V_NOM_USER" Type="varchar2" Mode="In" />
+    <Parameter Name="V_AP_USER" Type="varchar2" Mode="In" />
+    <Parameter Name="V_MAIL_USER" Type="varchar2" Mode="In" />
+    <Parameter Name="V_TELM_USER" Type="number" Mode="In" />
+    <Parameter Name="V_STATUS_USER" Type="varchar2" Mode="In" />
+    <Parameter Name="V_ROL_ID" Type="number" Mode="In" />
+    <Parameter Name="V_PASSWD" Type="varchar2" Mode="In" />
+    <Parameter Name="V_PASSWD2" Type="varchar2" Mode="In" />
   </Function>
   <EntityContainer Name="ModelStoreContainer">
     <EntitySet Name="ACCIDENTE" EntityType="Self.ACCIDENTE" Schema="ADMIN" store:Type="Tables" />
@@ -638,6 +833,7 @@
     <EntitySet Name="SUCURSAL" EntityType="Self.SUCURSAL" Schema="ADMIN" store:Type="Tables" />
     <EntitySet Name="TICKET" EntityType="Self.TICKET" Schema="ADMIN" store:Type="Tables" />
     <EntitySet Name="TIPO_CAP" EntityType="Self.TIPO_CAP" Schema="ADMIN" store:Type="Tables" />
+    <EntitySet Name="TIPO_TICKET" EntityType="Self.TIPO_TICKET" Schema="ADMIN" store:Type="Tables" />
     <EntitySet Name="USUARIO" EntityType="Self.USUARIO" Schema="ADMIN" store:Type="Tables" />
     <EntitySet Name="VISITA_TERR" EntityType="Self.VISITA_TERR" Schema="ADMIN" store:Type="Tables" />
     <AssociationSet Name="ACCIDENTE_EMPLEADOS_FK" Association="Self.ACCIDENTE_EMPLEADOS_FK">
@@ -722,6 +918,10 @@
     </AssociationSet>
     <AssociationSet Name="TICKET_PROFESIONAL_FK" Association="Self.TICKET_PROFESIONAL_FK">
       <End Role="PROFESIONAL" EntitySet="PROFESIONAL" />
+      <End Role="TICKET" EntitySet="TICKET" />
+    </AssociationSet>
+    <AssociationSet Name="TICKET_TIPO_FK" Association="Self.TICKET_TIPO_FK">
+      <End Role="TIPO_TICKET" EntitySet="TIPO_TICKET" />
       <End Role="TICKET" EntitySet="TICKET" />
     </AssociationSet>
     <AssociationSet Name="TICKET_USUARIO_FK" Association="Self.TICKET_USUARIO_FK">

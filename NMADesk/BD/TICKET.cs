@@ -16,15 +16,17 @@ namespace NMADesk.BD
     {
         public decimal ID_TICKET { get; set; }
         public System.DateTime FECHA_CREACION_TICKET { get; set; }
-        public Nullable<System.DateTime> FECHA_CIERRE_TICKET { get; set; }
+        public System.DateTime FECHA_CIERRE_TICKET { get; set; }
         public decimal ID_ESTADO { get; set; }
         public decimal ID_USUARIO { get; set; }
+        public decimal ID_TIPO { get; set; }
         public string DESCRIPCION { get; set; }
         public decimal ID_PROFESIONAL { get; set; }
         public string SOLUCION { get; set; }
     
         public virtual ESTADO ESTADO { get; set; }
         public virtual PROFESIONAL PROFESIONAL { get; set; }
+        public virtual TIPO_TICKET TIPO_TICKET { get; set; }
         public virtual USUARIO USUARIO { get; set; }
     }
 }

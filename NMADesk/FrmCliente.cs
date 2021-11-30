@@ -78,9 +78,37 @@ namespace NMADesk
 
             this.Hide();
             ticket tic = new ticket();
+            tic.FormClosed += (s, args) => this.Close();
             tic.Show();
            
 
+        }
+        private void abrirticket(object formticket)
+        {
+          if(this.panelContenedor.Controls.Count>0)
+            {
+                this.panelContenedor.Controls.RemoveAt(0);
+                Form fh = formticket as Form;
+                fh.TopLevel = false;
+                fh.Dock = DockStyle.Fill;
+                this.panelContenedor.Controls.Add(fh);
+                this.panelContenedor.Tag = fh;
+                fh.Show();
+            }
+        
+        }
+
+        private void iconButton3_Click(object sender, EventArgs e)
+        {
+            abrirticket(new ticket());
+        }
+
+        private void iconButton2_Click_1(object sender, EventArgs e)
+        {
+
+            this.Hide();
+            ticket tic = new ticket();
+            tic.Show();
         }
     }
 }

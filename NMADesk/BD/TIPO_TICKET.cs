@@ -12,14 +12,16 @@ namespace NMADesk.BD
     using System;
     using System.Collections.Generic;
     
-    public partial class ASESORIA
+    public partial class TIPO_TICKET
     {
-        public decimal ID_ASESORIA { get; set; }
-        public string TIPO_ASESORIA { get; set; }
-        public string DESC_ASESORIA { get; set; }
-        public decimal SERV_DETALLE_ID_SERV_DETALLE { get; set; }
-        public string STAT_ASESORIA { get; set; }
+        public TIPO_TICKET()
+        {
+            this.TICKET = new HashSet<TICKET>();
+        }
     
-        public virtual SERV_DETALLE SERV_DETALLE { get; set; }
+        public decimal ID_TIPO { get; set; }
+        public string NOMBRE { get; set; }
+    
+        public virtual ICollection<TICKET> TICKET { get; set; }
     }
 }

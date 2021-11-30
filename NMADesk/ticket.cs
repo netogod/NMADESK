@@ -50,5 +50,13 @@ namespace NMADesk
                 }
             
         }
+
+        private void btnMenuMain_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmCliente frm = new FrmCliente();
+            frm.FormClosed += (s, args) => this.Close();
+            frm.Show();
+        }
     }
 }

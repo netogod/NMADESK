@@ -30,7 +30,6 @@ namespace NMADesk.BD
     
         public DbSet<ACCIDENTE> ACCIDENTE { get; set; }
         public DbSet<AGENDA> AGENDA { get; set; }
-        public DbSet<ASESORIA> ASESORIA { get; set; }
         public DbSet<AUDITORIAUSER> AUDITORIAUSER { get; set; }
         public DbSet<CAPACITACION> CAPACITACION { get; set; }
         public DbSet<CHECKLIST> CHECKLIST { get; set; }
@@ -51,10 +50,12 @@ namespace NMADesk.BD
         public DbSet<SERV_DETALLE> SERV_DETALLE { get; set; }
         public DbSet<SERVICIO> SERVICIO { get; set; }
         public DbSet<SUCURSAL> SUCURSAL { get; set; }
-        public DbSet<TICKET> TICKET { get; set; }
         public DbSet<TIPO_CAP> TIPO_CAP { get; set; }
         public DbSet<USUARIO> USUARIO { get; set; }
         public DbSet<VISITA_TERR> VISITA_TERR { get; set; }
+        public DbSet<TICKET> TICKET { get; set; }
+        public DbSet<TIPO_TICKET> TIPO_TICKET { get; set; }
+        public DbSet<ASESORIA> ASESORIA { get; set; }
     
         public virtual int SP_ACTIVATE_TICKET(Nullable<decimal> v_ID_TICKET)
         {
@@ -63,39 +64,6 @@ namespace NMADesk.BD
                 new ObjectParameter("V_ID_TICKET", typeof(decimal));
     
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_ACTIVATE_TICKET", v_ID_TICKETParameter);
-        }
-    
-        public virtual int SP_CREAR_TICKET(Nullable<System.DateTime> v_FECHA_CREACION_TICKET, Nullable<System.DateTime> v_FECHA_CIERRE_TICKET, Nullable<decimal> v_ID_ESTADO, Nullable<decimal> v_ID_USUARIO, string v_DESCRIPCION, Nullable<decimal> v_ID_PROFESIONAL, string v_SOLUCION)
-        {
-            var v_FECHA_CREACION_TICKETParameter = v_FECHA_CREACION_TICKET.HasValue ?
-                new ObjectParameter("V_FECHA_CREACION_TICKET", v_FECHA_CREACION_TICKET) :
-                new ObjectParameter("V_FECHA_CREACION_TICKET", typeof(System.DateTime));
-    
-            var v_FECHA_CIERRE_TICKETParameter = v_FECHA_CIERRE_TICKET.HasValue ?
-                new ObjectParameter("V_FECHA_CIERRE_TICKET", v_FECHA_CIERRE_TICKET) :
-                new ObjectParameter("V_FECHA_CIERRE_TICKET", typeof(System.DateTime));
-    
-            var v_ID_ESTADOParameter = v_ID_ESTADO.HasValue ?
-                new ObjectParameter("V_ID_ESTADO", v_ID_ESTADO) :
-                new ObjectParameter("V_ID_ESTADO", typeof(decimal));
-    
-            var v_ID_USUARIOParameter = v_ID_USUARIO.HasValue ?
-                new ObjectParameter("V_ID_USUARIO", v_ID_USUARIO) :
-                new ObjectParameter("V_ID_USUARIO", typeof(decimal));
-    
-            var v_DESCRIPCIONParameter = v_DESCRIPCION != null ?
-                new ObjectParameter("V_DESCRIPCION", v_DESCRIPCION) :
-                new ObjectParameter("V_DESCRIPCION", typeof(string));
-    
-            var v_ID_PROFESIONALParameter = v_ID_PROFESIONAL.HasValue ?
-                new ObjectParameter("V_ID_PROFESIONAL", v_ID_PROFESIONAL) :
-                new ObjectParameter("V_ID_PROFESIONAL", typeof(decimal));
-    
-            var v_SOLUCIONParameter = v_SOLUCION != null ?
-                new ObjectParameter("V_SOLUCION", v_SOLUCION) :
-                new ObjectParameter("V_SOLUCION", typeof(string));
-    
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREAR_TICKET", v_FECHA_CREACION_TICKETParameter, v_FECHA_CIERRE_TICKETParameter, v_ID_ESTADOParameter, v_ID_USUARIOParameter, v_DESCRIPCIONParameter, v_ID_PROFESIONALParameter, v_SOLUCIONParameter);
         }
     
         public virtual int SP_DESACTIVATE_TICKET(Nullable<decimal> v_ID_TICKET)
@@ -107,19 +75,652 @@ namespace NMADesk.BD
             return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_DESACTIVATE_TICKET", v_ID_TICKETParameter);
         }
     
-        public virtual int SP_UPDATE_TICKET(Nullable<decimal> v_ID_TICKET, Nullable<System.DateTime> v_FECHA_CREACION_TICKET, Nullable<System.DateTime> v_FECHA_CIERRE_TICKET, Nullable<decimal> v_ID_ESTADO, Nullable<decimal> v_ID_USUARIO, string v_DESCRIPCION, Nullable<decimal> v_ID_PROFESIONAL, string v_SOLUCION)
+        public virtual int SP_ACTIVATE_ACCIDENTE(Nullable<decimal> v_ID_ACCIDENTE)
+        {
+            var v_ID_ACCIDENTEParameter = v_ID_ACCIDENTE.HasValue ?
+                new ObjectParameter("V_ID_ACCIDENTE", v_ID_ACCIDENTE) :
+                new ObjectParameter("V_ID_ACCIDENTE", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_ACTIVATE_ACCIDENTE", v_ID_ACCIDENTEParameter);
+        }
+    
+        public virtual int SP_ACTIVATE_AGENDA(Nullable<decimal> v_ID_AGENDA)
+        {
+            var v_ID_AGENDAParameter = v_ID_AGENDA.HasValue ?
+                new ObjectParameter("V_ID_AGENDA", v_ID_AGENDA) :
+                new ObjectParameter("V_ID_AGENDA", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_ACTIVATE_AGENDA", v_ID_AGENDAParameter);
+        }
+    
+        public virtual int SP_ACTIVATE_ASESORIA(Nullable<decimal> v_ID_ASESORIA)
+        {
+            var v_ID_ASESORIAParameter = v_ID_ASESORIA.HasValue ?
+                new ObjectParameter("V_ID_ASESORIA", v_ID_ASESORIA) :
+                new ObjectParameter("V_ID_ASESORIA", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_ACTIVATE_ASESORIA", v_ID_ASESORIAParameter);
+        }
+    
+        public virtual int SP_ACTIVATE_CAP(Nullable<decimal> v_ID_CAP)
+        {
+            var v_ID_CAPParameter = v_ID_CAP.HasValue ?
+                new ObjectParameter("V_ID_CAP", v_ID_CAP) :
+                new ObjectParameter("V_ID_CAP", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_ACTIVATE_CAP", v_ID_CAPParameter);
+        }
+    
+        public virtual int SP_ACTIVATE_CLIENTE(Nullable<decimal> v_RUT_CLI)
+        {
+            var v_RUT_CLIParameter = v_RUT_CLI.HasValue ?
+                new ObjectParameter("V_RUT_CLI", v_RUT_CLI) :
+                new ObjectParameter("V_RUT_CLI", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_ACTIVATE_CLIENTE", v_RUT_CLIParameter);
+        }
+    
+        public virtual int SP_ACTIVATE_EMPLEADO(Nullable<decimal> v_RUT_EMPL)
+        {
+            var v_RUT_EMPLParameter = v_RUT_EMPL.HasValue ?
+                new ObjectParameter("V_RUT_EMPL", v_RUT_EMPL) :
+                new ObjectParameter("V_RUT_EMPL", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_ACTIVATE_EMPLEADO", v_RUT_EMPLParameter);
+        }
+    
+        public virtual int SP_ACTIVATE_PROFESIONAL(Nullable<decimal> v_RUT_PROF)
+        {
+            var v_RUT_PROFParameter = v_RUT_PROF.HasValue ?
+                new ObjectParameter("V_RUT_PROF", v_RUT_PROF) :
+                new ObjectParameter("V_RUT_PROF", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_ACTIVATE_PROFESIONAL", v_RUT_PROFParameter);
+        }
+    
+        public virtual int SP_ACTIVATE_USER(Nullable<decimal> v_ID_USER)
+        {
+            var v_ID_USERParameter = v_ID_USER.HasValue ?
+                new ObjectParameter("V_ID_USER", v_ID_USER) :
+                new ObjectParameter("V_ID_USER", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_ACTIVATE_USER", v_ID_USERParameter);
+        }
+    
+        public virtual int SP_CREAR_ACCIDENTE(string v_SEVERIDAD_ACC, Nullable<decimal> v_CANT_AFECTADO, string v_DESC_ACCID, Nullable<decimal> v_EMPLEADOS_RUT_EMPL, string v_STAT_ACCID)
+        {
+            var v_SEVERIDAD_ACCParameter = v_SEVERIDAD_ACC != null ?
+                new ObjectParameter("V_SEVERIDAD_ACC", v_SEVERIDAD_ACC) :
+                new ObjectParameter("V_SEVERIDAD_ACC", typeof(string));
+    
+            var v_CANT_AFECTADOParameter = v_CANT_AFECTADO.HasValue ?
+                new ObjectParameter("V_CANT_AFECTADO", v_CANT_AFECTADO) :
+                new ObjectParameter("V_CANT_AFECTADO", typeof(decimal));
+    
+            var v_DESC_ACCIDParameter = v_DESC_ACCID != null ?
+                new ObjectParameter("V_DESC_ACCID", v_DESC_ACCID) :
+                new ObjectParameter("V_DESC_ACCID", typeof(string));
+    
+            var v_EMPLEADOS_RUT_EMPLParameter = v_EMPLEADOS_RUT_EMPL.HasValue ?
+                new ObjectParameter("V_EMPLEADOS_RUT_EMPL", v_EMPLEADOS_RUT_EMPL) :
+                new ObjectParameter("V_EMPLEADOS_RUT_EMPL", typeof(decimal));
+    
+            var v_STAT_ACCIDParameter = v_STAT_ACCID != null ?
+                new ObjectParameter("V_STAT_ACCID", v_STAT_ACCID) :
+                new ObjectParameter("V_STAT_ACCID", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREAR_ACCIDENTE", v_SEVERIDAD_ACCParameter, v_CANT_AFECTADOParameter, v_DESC_ACCIDParameter, v_EMPLEADOS_RUT_EMPLParameter, v_STAT_ACCIDParameter);
+        }
+    
+        public virtual int SP_CREAR_AGENDA(Nullable<decimal> v_ID_AGENDA, Nullable<System.DateTime> v_FECHA_AGEN, Nullable<System.DateTime> v_FECHA_REALI, string v_LUGAR, Nullable<decimal> v_PROFESIONAL_PROF_RUT, string v_STAT_AGEN)
+        {
+            var v_ID_AGENDAParameter = v_ID_AGENDA.HasValue ?
+                new ObjectParameter("V_ID_AGENDA", v_ID_AGENDA) :
+                new ObjectParameter("V_ID_AGENDA", typeof(decimal));
+    
+            var v_FECHA_AGENParameter = v_FECHA_AGEN.HasValue ?
+                new ObjectParameter("V_FECHA_AGEN", v_FECHA_AGEN) :
+                new ObjectParameter("V_FECHA_AGEN", typeof(System.DateTime));
+    
+            var v_FECHA_REALIParameter = v_FECHA_REALI.HasValue ?
+                new ObjectParameter("V_FECHA_REALI", v_FECHA_REALI) :
+                new ObjectParameter("V_FECHA_REALI", typeof(System.DateTime));
+    
+            var v_LUGARParameter = v_LUGAR != null ?
+                new ObjectParameter("V_LUGAR", v_LUGAR) :
+                new ObjectParameter("V_LUGAR", typeof(string));
+    
+            var v_PROFESIONAL_PROF_RUTParameter = v_PROFESIONAL_PROF_RUT.HasValue ?
+                new ObjectParameter("V_PROFESIONAL_PROF_RUT", v_PROFESIONAL_PROF_RUT) :
+                new ObjectParameter("V_PROFESIONAL_PROF_RUT", typeof(decimal));
+    
+            var v_STAT_AGENParameter = v_STAT_AGEN != null ?
+                new ObjectParameter("V_STAT_AGEN", v_STAT_AGEN) :
+                new ObjectParameter("V_STAT_AGEN", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREAR_AGENDA", v_ID_AGENDAParameter, v_FECHA_AGENParameter, v_FECHA_REALIParameter, v_LUGARParameter, v_PROFESIONAL_PROF_RUTParameter, v_STAT_AGENParameter);
+        }
+    
+        public virtual int SP_CREAR_ASESORIA(string v_TIPO_ASESORIA, string v_DESC_ASESORIA, Nullable<decimal> v_SERV_DETALLE_ID_SERV_DETALLE, string v_STAT_ASESORIA)
+        {
+            var v_TIPO_ASESORIAParameter = v_TIPO_ASESORIA != null ?
+                new ObjectParameter("V_TIPO_ASESORIA", v_TIPO_ASESORIA) :
+                new ObjectParameter("V_TIPO_ASESORIA", typeof(string));
+    
+            var v_DESC_ASESORIAParameter = v_DESC_ASESORIA != null ?
+                new ObjectParameter("V_DESC_ASESORIA", v_DESC_ASESORIA) :
+                new ObjectParameter("V_DESC_ASESORIA", typeof(string));
+    
+            var v_SERV_DETALLE_ID_SERV_DETALLEParameter = v_SERV_DETALLE_ID_SERV_DETALLE.HasValue ?
+                new ObjectParameter("V_SERV_DETALLE_ID_SERV_DETALLE", v_SERV_DETALLE_ID_SERV_DETALLE) :
+                new ObjectParameter("V_SERV_DETALLE_ID_SERV_DETALLE", typeof(decimal));
+    
+            var v_STAT_ASESORIAParameter = v_STAT_ASESORIA != null ?
+                new ObjectParameter("V_STAT_ASESORIA", v_STAT_ASESORIA) :
+                new ObjectParameter("V_STAT_ASESORIA", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREAR_ASESORIA", v_TIPO_ASESORIAParameter, v_DESC_ASESORIAParameter, v_SERV_DETALLE_ID_SERV_DETALLEParameter, v_STAT_ASESORIAParameter);
+        }
+    
+        public virtual int SP_CREAR_CAP(Nullable<System.DateTime> v_FECHA_CAP, string v_TEMA_CAP, Nullable<decimal> v_SERV_DETALLE_ID_SERV_DETALLE, Nullable<decimal> v_TIPO_CAP_ID_TIP_CAP, string v_STAT_CAP)
+        {
+            var v_FECHA_CAPParameter = v_FECHA_CAP.HasValue ?
+                new ObjectParameter("V_FECHA_CAP", v_FECHA_CAP) :
+                new ObjectParameter("V_FECHA_CAP", typeof(System.DateTime));
+    
+            var v_TEMA_CAPParameter = v_TEMA_CAP != null ?
+                new ObjectParameter("V_TEMA_CAP", v_TEMA_CAP) :
+                new ObjectParameter("V_TEMA_CAP", typeof(string));
+    
+            var v_SERV_DETALLE_ID_SERV_DETALLEParameter = v_SERV_DETALLE_ID_SERV_DETALLE.HasValue ?
+                new ObjectParameter("V_SERV_DETALLE_ID_SERV_DETALLE", v_SERV_DETALLE_ID_SERV_DETALLE) :
+                new ObjectParameter("V_SERV_DETALLE_ID_SERV_DETALLE", typeof(decimal));
+    
+            var v_TIPO_CAP_ID_TIP_CAPParameter = v_TIPO_CAP_ID_TIP_CAP.HasValue ?
+                new ObjectParameter("V_TIPO_CAP_ID_TIP_CAP", v_TIPO_CAP_ID_TIP_CAP) :
+                new ObjectParameter("V_TIPO_CAP_ID_TIP_CAP", typeof(decimal));
+    
+            var v_STAT_CAPParameter = v_STAT_CAP != null ?
+                new ObjectParameter("V_STAT_CAP", v_STAT_CAP) :
+                new ObjectParameter("V_STAT_CAP", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREAR_CAP", v_FECHA_CAPParameter, v_TEMA_CAPParameter, v_SERV_DETALLE_ID_SERV_DETALLEParameter, v_TIPO_CAP_ID_TIP_CAPParameter, v_STAT_CAPParameter);
+        }
+    
+        public virtual int SP_CREAR_CLIENTE(Nullable<decimal> v_RUT_CLI, string v_DV_CLI, string v_RAZ_SOC_CLI, string v_MAIL_CLI, string v_STAT_CLI, Nullable<decimal> v_TEL_CLI, Nullable<decimal> v_EMPRESA_RUT_EMP)
+        {
+            var v_RUT_CLIParameter = v_RUT_CLI.HasValue ?
+                new ObjectParameter("V_RUT_CLI", v_RUT_CLI) :
+                new ObjectParameter("V_RUT_CLI", typeof(decimal));
+    
+            var v_DV_CLIParameter = v_DV_CLI != null ?
+                new ObjectParameter("V_DV_CLI", v_DV_CLI) :
+                new ObjectParameter("V_DV_CLI", typeof(string));
+    
+            var v_RAZ_SOC_CLIParameter = v_RAZ_SOC_CLI != null ?
+                new ObjectParameter("V_RAZ_SOC_CLI", v_RAZ_SOC_CLI) :
+                new ObjectParameter("V_RAZ_SOC_CLI", typeof(string));
+    
+            var v_MAIL_CLIParameter = v_MAIL_CLI != null ?
+                new ObjectParameter("V_MAIL_CLI", v_MAIL_CLI) :
+                new ObjectParameter("V_MAIL_CLI", typeof(string));
+    
+            var v_STAT_CLIParameter = v_STAT_CLI != null ?
+                new ObjectParameter("V_STAT_CLI", v_STAT_CLI) :
+                new ObjectParameter("V_STAT_CLI", typeof(string));
+    
+            var v_TEL_CLIParameter = v_TEL_CLI.HasValue ?
+                new ObjectParameter("V_TEL_CLI", v_TEL_CLI) :
+                new ObjectParameter("V_TEL_CLI", typeof(decimal));
+    
+            var v_EMPRESA_RUT_EMPParameter = v_EMPRESA_RUT_EMP.HasValue ?
+                new ObjectParameter("V_EMPRESA_RUT_EMP", v_EMPRESA_RUT_EMP) :
+                new ObjectParameter("V_EMPRESA_RUT_EMP", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREAR_CLIENTE", v_RUT_CLIParameter, v_DV_CLIParameter, v_RAZ_SOC_CLIParameter, v_MAIL_CLIParameter, v_STAT_CLIParameter, v_TEL_CLIParameter, v_EMPRESA_RUT_EMPParameter);
+        }
+    
+        public virtual int SP_CREAR_EMPLEADO(Nullable<decimal> v_RUT_EMPL, string v_DV_EMPL, string v_NOM_EMPL, string v_AP_EMPL, Nullable<decimal> v_CANT_CAP, Nullable<decimal> v_CLIENTE_RUT_CLI, string v_STAT_EMPL)
+        {
+            var v_RUT_EMPLParameter = v_RUT_EMPL.HasValue ?
+                new ObjectParameter("V_RUT_EMPL", v_RUT_EMPL) :
+                new ObjectParameter("V_RUT_EMPL", typeof(decimal));
+    
+            var v_DV_EMPLParameter = v_DV_EMPL != null ?
+                new ObjectParameter("V_DV_EMPL", v_DV_EMPL) :
+                new ObjectParameter("V_DV_EMPL", typeof(string));
+    
+            var v_NOM_EMPLParameter = v_NOM_EMPL != null ?
+                new ObjectParameter("V_NOM_EMPL", v_NOM_EMPL) :
+                new ObjectParameter("V_NOM_EMPL", typeof(string));
+    
+            var v_AP_EMPLParameter = v_AP_EMPL != null ?
+                new ObjectParameter("V_AP_EMPL", v_AP_EMPL) :
+                new ObjectParameter("V_AP_EMPL", typeof(string));
+    
+            var v_CANT_CAPParameter = v_CANT_CAP.HasValue ?
+                new ObjectParameter("V_CANT_CAP", v_CANT_CAP) :
+                new ObjectParameter("V_CANT_CAP", typeof(decimal));
+    
+            var v_CLIENTE_RUT_CLIParameter = v_CLIENTE_RUT_CLI.HasValue ?
+                new ObjectParameter("V_CLIENTE_RUT_CLI", v_CLIENTE_RUT_CLI) :
+                new ObjectParameter("V_CLIENTE_RUT_CLI", typeof(decimal));
+    
+            var v_STAT_EMPLParameter = v_STAT_EMPL != null ?
+                new ObjectParameter("V_STAT_EMPL", v_STAT_EMPL) :
+                new ObjectParameter("V_STAT_EMPL", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREAR_EMPLEADO", v_RUT_EMPLParameter, v_DV_EMPLParameter, v_NOM_EMPLParameter, v_AP_EMPLParameter, v_CANT_CAPParameter, v_CLIENTE_RUT_CLIParameter, v_STAT_EMPLParameter);
+        }
+    
+        public virtual int SP_CREAR_PROFESIONAL(Nullable<decimal> v_RUT_PROF, string v_DV_PROF, string v_NOM_PROF, string v_AP_PROF, string v_MAIL_PROF, Nullable<decimal> v_TEL_PROF, Nullable<decimal> v_EMPRESA_RUT_EMP, string v_STAT_PROF)
+        {
+            var v_RUT_PROFParameter = v_RUT_PROF.HasValue ?
+                new ObjectParameter("V_RUT_PROF", v_RUT_PROF) :
+                new ObjectParameter("V_RUT_PROF", typeof(decimal));
+    
+            var v_DV_PROFParameter = v_DV_PROF != null ?
+                new ObjectParameter("V_DV_PROF", v_DV_PROF) :
+                new ObjectParameter("V_DV_PROF", typeof(string));
+    
+            var v_NOM_PROFParameter = v_NOM_PROF != null ?
+                new ObjectParameter("V_NOM_PROF", v_NOM_PROF) :
+                new ObjectParameter("V_NOM_PROF", typeof(string));
+    
+            var v_AP_PROFParameter = v_AP_PROF != null ?
+                new ObjectParameter("V_AP_PROF", v_AP_PROF) :
+                new ObjectParameter("V_AP_PROF", typeof(string));
+    
+            var v_MAIL_PROFParameter = v_MAIL_PROF != null ?
+                new ObjectParameter("V_MAIL_PROF", v_MAIL_PROF) :
+                new ObjectParameter("V_MAIL_PROF", typeof(string));
+    
+            var v_TEL_PROFParameter = v_TEL_PROF.HasValue ?
+                new ObjectParameter("V_TEL_PROF", v_TEL_PROF) :
+                new ObjectParameter("V_TEL_PROF", typeof(decimal));
+    
+            var v_EMPRESA_RUT_EMPParameter = v_EMPRESA_RUT_EMP.HasValue ?
+                new ObjectParameter("V_EMPRESA_RUT_EMP", v_EMPRESA_RUT_EMP) :
+                new ObjectParameter("V_EMPRESA_RUT_EMP", typeof(decimal));
+    
+            var v_STAT_PROFParameter = v_STAT_PROF != null ?
+                new ObjectParameter("V_STAT_PROF", v_STAT_PROF) :
+                new ObjectParameter("V_STAT_PROF", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREAR_PROFESIONAL", v_RUT_PROFParameter, v_DV_PROFParameter, v_NOM_PROFParameter, v_AP_PROFParameter, v_MAIL_PROFParameter, v_TEL_PROFParameter, v_EMPRESA_RUT_EMPParameter, v_STAT_PROFParameter);
+        }
+    
+        public virtual int SP_CREAR_USER(string v_NOM_USER, string v_AP_USER, string v_MAIL_USER, Nullable<decimal> v_TELM_USER, string v_STATUS_USER, Nullable<decimal> v_ROL_ID, string v_PASSWD, string v_PASSWD2)
+        {
+            var v_NOM_USERParameter = v_NOM_USER != null ?
+                new ObjectParameter("V_NOM_USER", v_NOM_USER) :
+                new ObjectParameter("V_NOM_USER", typeof(string));
+    
+            var v_AP_USERParameter = v_AP_USER != null ?
+                new ObjectParameter("V_AP_USER", v_AP_USER) :
+                new ObjectParameter("V_AP_USER", typeof(string));
+    
+            var v_MAIL_USERParameter = v_MAIL_USER != null ?
+                new ObjectParameter("V_MAIL_USER", v_MAIL_USER) :
+                new ObjectParameter("V_MAIL_USER", typeof(string));
+    
+            var v_TELM_USERParameter = v_TELM_USER.HasValue ?
+                new ObjectParameter("V_TELM_USER", v_TELM_USER) :
+                new ObjectParameter("V_TELM_USER", typeof(decimal));
+    
+            var v_STATUS_USERParameter = v_STATUS_USER != null ?
+                new ObjectParameter("V_STATUS_USER", v_STATUS_USER) :
+                new ObjectParameter("V_STATUS_USER", typeof(string));
+    
+            var v_ROL_IDParameter = v_ROL_ID.HasValue ?
+                new ObjectParameter("V_ROL_ID", v_ROL_ID) :
+                new ObjectParameter("V_ROL_ID", typeof(decimal));
+    
+            var v_PASSWDParameter = v_PASSWD != null ?
+                new ObjectParameter("V_PASSWD", v_PASSWD) :
+                new ObjectParameter("V_PASSWD", typeof(string));
+    
+            var v_PASSWD2Parameter = v_PASSWD2 != null ?
+                new ObjectParameter("V_PASSWD2", v_PASSWD2) :
+                new ObjectParameter("V_PASSWD2", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREAR_USER", v_NOM_USERParameter, v_AP_USERParameter, v_MAIL_USERParameter, v_TELM_USERParameter, v_STATUS_USERParameter, v_ROL_IDParameter, v_PASSWDParameter, v_PASSWD2Parameter);
+        }
+    
+        public virtual int SP_DESACTIVATE_ACCIDENTE(Nullable<decimal> v_ID_ACCIDENTE)
+        {
+            var v_ID_ACCIDENTEParameter = v_ID_ACCIDENTE.HasValue ?
+                new ObjectParameter("V_ID_ACCIDENTE", v_ID_ACCIDENTE) :
+                new ObjectParameter("V_ID_ACCIDENTE", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_DESACTIVATE_ACCIDENTE", v_ID_ACCIDENTEParameter);
+        }
+    
+        public virtual int SP_DESACTIVATE_AGENDA(Nullable<decimal> v_ID_AGENDA)
+        {
+            var v_ID_AGENDAParameter = v_ID_AGENDA.HasValue ?
+                new ObjectParameter("V_ID_AGENDA", v_ID_AGENDA) :
+                new ObjectParameter("V_ID_AGENDA", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_DESACTIVATE_AGENDA", v_ID_AGENDAParameter);
+        }
+    
+        public virtual int SP_DESACTIVATE_ASESORIA(Nullable<decimal> v_ID_ASESORIA)
+        {
+            var v_ID_ASESORIAParameter = v_ID_ASESORIA.HasValue ?
+                new ObjectParameter("V_ID_ASESORIA", v_ID_ASESORIA) :
+                new ObjectParameter("V_ID_ASESORIA", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_DESACTIVATE_ASESORIA", v_ID_ASESORIAParameter);
+        }
+    
+        public virtual int SP_DESACTIVATE_CAP(Nullable<decimal> v_ID_CAP)
+        {
+            var v_ID_CAPParameter = v_ID_CAP.HasValue ?
+                new ObjectParameter("V_ID_CAP", v_ID_CAP) :
+                new ObjectParameter("V_ID_CAP", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_DESACTIVATE_CAP", v_ID_CAPParameter);
+        }
+    
+        public virtual int SP_DESACTIVATE_CLIENTE(Nullable<decimal> v_RUT_CLI)
+        {
+            var v_RUT_CLIParameter = v_RUT_CLI.HasValue ?
+                new ObjectParameter("V_RUT_CLI", v_RUT_CLI) :
+                new ObjectParameter("V_RUT_CLI", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_DESACTIVATE_CLIENTE", v_RUT_CLIParameter);
+        }
+    
+        public virtual int SP_DESACTIVATE_EMPLEADO(Nullable<decimal> v_RUT_EMPL)
+        {
+            var v_RUT_EMPLParameter = v_RUT_EMPL.HasValue ?
+                new ObjectParameter("V_RUT_EMPL", v_RUT_EMPL) :
+                new ObjectParameter("V_RUT_EMPL", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_DESACTIVATE_EMPLEADO", v_RUT_EMPLParameter);
+        }
+    
+        public virtual int SP_DESACTIVATE_PROFESIONAL(Nullable<decimal> v_RUT_PROF)
+        {
+            var v_RUT_PROFParameter = v_RUT_PROF.HasValue ?
+                new ObjectParameter("V_RUT_PROF", v_RUT_PROF) :
+                new ObjectParameter("V_RUT_PROF", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_DESACTIVATE_PROFESIONAL", v_RUT_PROFParameter);
+        }
+    
+        public virtual int SP_DESACTIVATE_USER(Nullable<decimal> v_ID_USER)
+        {
+            var v_ID_USERParameter = v_ID_USER.HasValue ?
+                new ObjectParameter("V_ID_USER", v_ID_USER) :
+                new ObjectParameter("V_ID_USER", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_DESACTIVATE_USER", v_ID_USERParameter);
+        }
+    
+        public virtual int SP_UPDATE_ACCIDENTE(Nullable<decimal> v_ID_ACCIDENTE, string v_SEVERIDAD_ACC, Nullable<decimal> v_CANT_AFECTADO, string v_DESC_ACCID)
+        {
+            var v_ID_ACCIDENTEParameter = v_ID_ACCIDENTE.HasValue ?
+                new ObjectParameter("V_ID_ACCIDENTE", v_ID_ACCIDENTE) :
+                new ObjectParameter("V_ID_ACCIDENTE", typeof(decimal));
+    
+            var v_SEVERIDAD_ACCParameter = v_SEVERIDAD_ACC != null ?
+                new ObjectParameter("V_SEVERIDAD_ACC", v_SEVERIDAD_ACC) :
+                new ObjectParameter("V_SEVERIDAD_ACC", typeof(string));
+    
+            var v_CANT_AFECTADOParameter = v_CANT_AFECTADO.HasValue ?
+                new ObjectParameter("V_CANT_AFECTADO", v_CANT_AFECTADO) :
+                new ObjectParameter("V_CANT_AFECTADO", typeof(decimal));
+    
+            var v_DESC_ACCIDParameter = v_DESC_ACCID != null ?
+                new ObjectParameter("V_DESC_ACCID", v_DESC_ACCID) :
+                new ObjectParameter("V_DESC_ACCID", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_ACCIDENTE", v_ID_ACCIDENTEParameter, v_SEVERIDAD_ACCParameter, v_CANT_AFECTADOParameter, v_DESC_ACCIDParameter);
+        }
+    
+        public virtual int SP_UPDATE_AGENDA(Nullable<decimal> v_ID_AGENDA, Nullable<System.DateTime> v_FECHA_AGEN, Nullable<System.DateTime> v_FECHA_REALI, string v_LUGAR, string v_STAT_AGEN)
+        {
+            var v_ID_AGENDAParameter = v_ID_AGENDA.HasValue ?
+                new ObjectParameter("V_ID_AGENDA", v_ID_AGENDA) :
+                new ObjectParameter("V_ID_AGENDA", typeof(decimal));
+    
+            var v_FECHA_AGENParameter = v_FECHA_AGEN.HasValue ?
+                new ObjectParameter("V_FECHA_AGEN", v_FECHA_AGEN) :
+                new ObjectParameter("V_FECHA_AGEN", typeof(System.DateTime));
+    
+            var v_FECHA_REALIParameter = v_FECHA_REALI.HasValue ?
+                new ObjectParameter("V_FECHA_REALI", v_FECHA_REALI) :
+                new ObjectParameter("V_FECHA_REALI", typeof(System.DateTime));
+    
+            var v_LUGARParameter = v_LUGAR != null ?
+                new ObjectParameter("V_LUGAR", v_LUGAR) :
+                new ObjectParameter("V_LUGAR", typeof(string));
+    
+            var v_STAT_AGENParameter = v_STAT_AGEN != null ?
+                new ObjectParameter("V_STAT_AGEN", v_STAT_AGEN) :
+                new ObjectParameter("V_STAT_AGEN", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_AGENDA", v_ID_AGENDAParameter, v_FECHA_AGENParameter, v_FECHA_REALIParameter, v_LUGARParameter, v_STAT_AGENParameter);
+        }
+    
+        public virtual int SP_UPDATE_ASESORIA(Nullable<decimal> v_ID_ASESORIA, string v_TIPO_ASESORIA, string v_DESC_ASESORIA)
+        {
+            var v_ID_ASESORIAParameter = v_ID_ASESORIA.HasValue ?
+                new ObjectParameter("V_ID_ASESORIA", v_ID_ASESORIA) :
+                new ObjectParameter("V_ID_ASESORIA", typeof(decimal));
+    
+            var v_TIPO_ASESORIAParameter = v_TIPO_ASESORIA != null ?
+                new ObjectParameter("V_TIPO_ASESORIA", v_TIPO_ASESORIA) :
+                new ObjectParameter("V_TIPO_ASESORIA", typeof(string));
+    
+            var v_DESC_ASESORIAParameter = v_DESC_ASESORIA != null ?
+                new ObjectParameter("V_DESC_ASESORIA", v_DESC_ASESORIA) :
+                new ObjectParameter("V_DESC_ASESORIA", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_ASESORIA", v_ID_ASESORIAParameter, v_TIPO_ASESORIAParameter, v_DESC_ASESORIAParameter);
+        }
+    
+        public virtual int SP_UPDATE_CAP(Nullable<decimal> v_ID_CAP, Nullable<System.DateTime> v_FECHA_CAP, string v_TEMA_CAP, string v_SERV_DETALLE_ID_SERV_DETALLE, Nullable<decimal> v_TIPO_CAP_ID_TIP_CAP, string v_STAT_CAP)
+        {
+            var v_ID_CAPParameter = v_ID_CAP.HasValue ?
+                new ObjectParameter("V_ID_CAP", v_ID_CAP) :
+                new ObjectParameter("V_ID_CAP", typeof(decimal));
+    
+            var v_FECHA_CAPParameter = v_FECHA_CAP.HasValue ?
+                new ObjectParameter("V_FECHA_CAP", v_FECHA_CAP) :
+                new ObjectParameter("V_FECHA_CAP", typeof(System.DateTime));
+    
+            var v_TEMA_CAPParameter = v_TEMA_CAP != null ?
+                new ObjectParameter("V_TEMA_CAP", v_TEMA_CAP) :
+                new ObjectParameter("V_TEMA_CAP", typeof(string));
+    
+            var v_SERV_DETALLE_ID_SERV_DETALLEParameter = v_SERV_DETALLE_ID_SERV_DETALLE != null ?
+                new ObjectParameter("V_SERV_DETALLE_ID_SERV_DETALLE", v_SERV_DETALLE_ID_SERV_DETALLE) :
+                new ObjectParameter("V_SERV_DETALLE_ID_SERV_DETALLE", typeof(string));
+    
+            var v_TIPO_CAP_ID_TIP_CAPParameter = v_TIPO_CAP_ID_TIP_CAP.HasValue ?
+                new ObjectParameter("V_TIPO_CAP_ID_TIP_CAP", v_TIPO_CAP_ID_TIP_CAP) :
+                new ObjectParameter("V_TIPO_CAP_ID_TIP_CAP", typeof(decimal));
+    
+            var v_STAT_CAPParameter = v_STAT_CAP != null ?
+                new ObjectParameter("V_STAT_CAP", v_STAT_CAP) :
+                new ObjectParameter("V_STAT_CAP", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_CAP", v_ID_CAPParameter, v_FECHA_CAPParameter, v_TEMA_CAPParameter, v_SERV_DETALLE_ID_SERV_DETALLEParameter, v_TIPO_CAP_ID_TIP_CAPParameter, v_STAT_CAPParameter);
+        }
+    
+        public virtual int SP_UPDATE_CLIENTE(Nullable<decimal> v_RUT_CLI, string v_DV_CLI, string v_RAZ_SOC_CLI, string v_MAIL_CLI, string v_STAT_CLI, Nullable<decimal> v_TEL_CLI, Nullable<decimal> v_EMPRESA_RUT_EMP)
+        {
+            var v_RUT_CLIParameter = v_RUT_CLI.HasValue ?
+                new ObjectParameter("V_RUT_CLI", v_RUT_CLI) :
+                new ObjectParameter("V_RUT_CLI", typeof(decimal));
+    
+            var v_DV_CLIParameter = v_DV_CLI != null ?
+                new ObjectParameter("V_DV_CLI", v_DV_CLI) :
+                new ObjectParameter("V_DV_CLI", typeof(string));
+    
+            var v_RAZ_SOC_CLIParameter = v_RAZ_SOC_CLI != null ?
+                new ObjectParameter("V_RAZ_SOC_CLI", v_RAZ_SOC_CLI) :
+                new ObjectParameter("V_RAZ_SOC_CLI", typeof(string));
+    
+            var v_MAIL_CLIParameter = v_MAIL_CLI != null ?
+                new ObjectParameter("V_MAIL_CLI", v_MAIL_CLI) :
+                new ObjectParameter("V_MAIL_CLI", typeof(string));
+    
+            var v_STAT_CLIParameter = v_STAT_CLI != null ?
+                new ObjectParameter("V_STAT_CLI", v_STAT_CLI) :
+                new ObjectParameter("V_STAT_CLI", typeof(string));
+    
+            var v_TEL_CLIParameter = v_TEL_CLI.HasValue ?
+                new ObjectParameter("V_TEL_CLI", v_TEL_CLI) :
+                new ObjectParameter("V_TEL_CLI", typeof(decimal));
+    
+            var v_EMPRESA_RUT_EMPParameter = v_EMPRESA_RUT_EMP.HasValue ?
+                new ObjectParameter("V_EMPRESA_RUT_EMP", v_EMPRESA_RUT_EMP) :
+                new ObjectParameter("V_EMPRESA_RUT_EMP", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_CLIENTE", v_RUT_CLIParameter, v_DV_CLIParameter, v_RAZ_SOC_CLIParameter, v_MAIL_CLIParameter, v_STAT_CLIParameter, v_TEL_CLIParameter, v_EMPRESA_RUT_EMPParameter);
+        }
+    
+        public virtual int SP_UPDATE_EMPLEADO(Nullable<decimal> v_RUT_EMPL, string v_DV_EMPL, string v_NOM_EMPL, string v_AP_EMPL, Nullable<decimal> v_CANT_CAP, Nullable<decimal> v_CLIENTE_RUT_CLI)
+        {
+            var v_RUT_EMPLParameter = v_RUT_EMPL.HasValue ?
+                new ObjectParameter("V_RUT_EMPL", v_RUT_EMPL) :
+                new ObjectParameter("V_RUT_EMPL", typeof(decimal));
+    
+            var v_DV_EMPLParameter = v_DV_EMPL != null ?
+                new ObjectParameter("V_DV_EMPL", v_DV_EMPL) :
+                new ObjectParameter("V_DV_EMPL", typeof(string));
+    
+            var v_NOM_EMPLParameter = v_NOM_EMPL != null ?
+                new ObjectParameter("V_NOM_EMPL", v_NOM_EMPL) :
+                new ObjectParameter("V_NOM_EMPL", typeof(string));
+    
+            var v_AP_EMPLParameter = v_AP_EMPL != null ?
+                new ObjectParameter("V_AP_EMPL", v_AP_EMPL) :
+                new ObjectParameter("V_AP_EMPL", typeof(string));
+    
+            var v_CANT_CAPParameter = v_CANT_CAP.HasValue ?
+                new ObjectParameter("V_CANT_CAP", v_CANT_CAP) :
+                new ObjectParameter("V_CANT_CAP", typeof(decimal));
+    
+            var v_CLIENTE_RUT_CLIParameter = v_CLIENTE_RUT_CLI.HasValue ?
+                new ObjectParameter("V_CLIENTE_RUT_CLI", v_CLIENTE_RUT_CLI) :
+                new ObjectParameter("V_CLIENTE_RUT_CLI", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_EMPLEADO", v_RUT_EMPLParameter, v_DV_EMPLParameter, v_NOM_EMPLParameter, v_AP_EMPLParameter, v_CANT_CAPParameter, v_CLIENTE_RUT_CLIParameter);
+        }
+    
+        public virtual int SP_UPDATE_PROFESIONAL(Nullable<decimal> v_RUT_PROF, string v_NOM_PROF, string v_AP_PROF, string v_MAIL_PROF, Nullable<decimal> v_TEL_PROF, Nullable<decimal> v_EMPRESA_RUT_EMP, string v_STAT_PROF)
+        {
+            var v_RUT_PROFParameter = v_RUT_PROF.HasValue ?
+                new ObjectParameter("V_RUT_PROF", v_RUT_PROF) :
+                new ObjectParameter("V_RUT_PROF", typeof(decimal));
+    
+            var v_NOM_PROFParameter = v_NOM_PROF != null ?
+                new ObjectParameter("V_NOM_PROF", v_NOM_PROF) :
+                new ObjectParameter("V_NOM_PROF", typeof(string));
+    
+            var v_AP_PROFParameter = v_AP_PROF != null ?
+                new ObjectParameter("V_AP_PROF", v_AP_PROF) :
+                new ObjectParameter("V_AP_PROF", typeof(string));
+    
+            var v_MAIL_PROFParameter = v_MAIL_PROF != null ?
+                new ObjectParameter("V_MAIL_PROF", v_MAIL_PROF) :
+                new ObjectParameter("V_MAIL_PROF", typeof(string));
+    
+            var v_TEL_PROFParameter = v_TEL_PROF.HasValue ?
+                new ObjectParameter("V_TEL_PROF", v_TEL_PROF) :
+                new ObjectParameter("V_TEL_PROF", typeof(decimal));
+    
+            var v_EMPRESA_RUT_EMPParameter = v_EMPRESA_RUT_EMP.HasValue ?
+                new ObjectParameter("V_EMPRESA_RUT_EMP", v_EMPRESA_RUT_EMP) :
+                new ObjectParameter("V_EMPRESA_RUT_EMP", typeof(decimal));
+    
+            var v_STAT_PROFParameter = v_STAT_PROF != null ?
+                new ObjectParameter("V_STAT_PROF", v_STAT_PROF) :
+                new ObjectParameter("V_STAT_PROF", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_PROFESIONAL", v_RUT_PROFParameter, v_NOM_PROFParameter, v_AP_PROFParameter, v_MAIL_PROFParameter, v_TEL_PROFParameter, v_EMPRESA_RUT_EMPParameter, v_STAT_PROFParameter);
+        }
+    
+        public virtual int SP_UPDATE_USER(Nullable<decimal> v_ID_USER, string v_NOM_USER, string v_AP_USER, string v_MAIL_USER, Nullable<decimal> v_TELM_USER, string v_STATUS_USER, Nullable<decimal> v_ROL_ID, string v_PASSWD, string v_PASSWD2)
+        {
+            var v_ID_USERParameter = v_ID_USER.HasValue ?
+                new ObjectParameter("V_ID_USER", v_ID_USER) :
+                new ObjectParameter("V_ID_USER", typeof(decimal));
+    
+            var v_NOM_USERParameter = v_NOM_USER != null ?
+                new ObjectParameter("V_NOM_USER", v_NOM_USER) :
+                new ObjectParameter("V_NOM_USER", typeof(string));
+    
+            var v_AP_USERParameter = v_AP_USER != null ?
+                new ObjectParameter("V_AP_USER", v_AP_USER) :
+                new ObjectParameter("V_AP_USER", typeof(string));
+    
+            var v_MAIL_USERParameter = v_MAIL_USER != null ?
+                new ObjectParameter("V_MAIL_USER", v_MAIL_USER) :
+                new ObjectParameter("V_MAIL_USER", typeof(string));
+    
+            var v_TELM_USERParameter = v_TELM_USER.HasValue ?
+                new ObjectParameter("V_TELM_USER", v_TELM_USER) :
+                new ObjectParameter("V_TELM_USER", typeof(decimal));
+    
+            var v_STATUS_USERParameter = v_STATUS_USER != null ?
+                new ObjectParameter("V_STATUS_USER", v_STATUS_USER) :
+                new ObjectParameter("V_STATUS_USER", typeof(string));
+    
+            var v_ROL_IDParameter = v_ROL_ID.HasValue ?
+                new ObjectParameter("V_ROL_ID", v_ROL_ID) :
+                new ObjectParameter("V_ROL_ID", typeof(decimal));
+    
+            var v_PASSWDParameter = v_PASSWD != null ?
+                new ObjectParameter("V_PASSWD", v_PASSWD) :
+                new ObjectParameter("V_PASSWD", typeof(string));
+    
+            var v_PASSWD2Parameter = v_PASSWD2 != null ?
+                new ObjectParameter("V_PASSWD2", v_PASSWD2) :
+                new ObjectParameter("V_PASSWD2", typeof(string));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_USER", v_ID_USERParameter, v_NOM_USERParameter, v_AP_USERParameter, v_MAIL_USERParameter, v_TELM_USERParameter, v_STATUS_USERParameter, v_ROL_IDParameter, v_PASSWDParameter, v_PASSWD2Parameter);
+        }
+    
+        public virtual int SP_CREAR_TICKET(Nullable<decimal> v_ID_TICKET, Nullable<decimal> v_ID_ESTADO, Nullable<decimal> v_ID_USUARIO, Nullable<decimal> v_ID_TIPO, string v_DESCRIPCION, Nullable<decimal> v_ID_PROFESIONAL)
         {
             var v_ID_TICKETParameter = v_ID_TICKET.HasValue ?
                 new ObjectParameter("V_ID_TICKET", v_ID_TICKET) :
                 new ObjectParameter("V_ID_TICKET", typeof(decimal));
     
-            var v_FECHA_CREACION_TICKETParameter = v_FECHA_CREACION_TICKET.HasValue ?
-                new ObjectParameter("V_FECHA_CREACION_TICKET", v_FECHA_CREACION_TICKET) :
-                new ObjectParameter("V_FECHA_CREACION_TICKET", typeof(System.DateTime));
+            var v_ID_ESTADOParameter = v_ID_ESTADO.HasValue ?
+                new ObjectParameter("V_ID_ESTADO", v_ID_ESTADO) :
+                new ObjectParameter("V_ID_ESTADO", typeof(decimal));
     
-            var v_FECHA_CIERRE_TICKETParameter = v_FECHA_CIERRE_TICKET.HasValue ?
-                new ObjectParameter("V_FECHA_CIERRE_TICKET", v_FECHA_CIERRE_TICKET) :
-                new ObjectParameter("V_FECHA_CIERRE_TICKET", typeof(System.DateTime));
+            var v_ID_USUARIOParameter = v_ID_USUARIO.HasValue ?
+                new ObjectParameter("V_ID_USUARIO", v_ID_USUARIO) :
+                new ObjectParameter("V_ID_USUARIO", typeof(decimal));
+    
+            var v_ID_TIPOParameter = v_ID_TIPO.HasValue ?
+                new ObjectParameter("V_ID_TIPO", v_ID_TIPO) :
+                new ObjectParameter("V_ID_TIPO", typeof(decimal));
+    
+            var v_DESCRIPCIONParameter = v_DESCRIPCION != null ?
+                new ObjectParameter("V_DESCRIPCION", v_DESCRIPCION) :
+                new ObjectParameter("V_DESCRIPCION", typeof(string));
+    
+            var v_ID_PROFESIONALParameter = v_ID_PROFESIONAL.HasValue ?
+                new ObjectParameter("V_ID_PROFESIONAL", v_ID_PROFESIONAL) :
+                new ObjectParameter("V_ID_PROFESIONAL", typeof(decimal));
+    
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_CREAR_TICKET", v_ID_TICKETParameter, v_ID_ESTADOParameter, v_ID_USUARIOParameter, v_ID_TIPOParameter, v_DESCRIPCIONParameter, v_ID_PROFESIONALParameter);
+        }
+    
+        public virtual int SP_UPDATE_TICKET(Nullable<decimal> v_ID_TICKET, Nullable<decimal> v_ID_ESTADO, Nullable<decimal> v_ID_USUARIO, string v_DESCRIPCION, Nullable<decimal> v_ID_PROFESIONAL, string v_SOLUCION)
+        {
+            var v_ID_TICKETParameter = v_ID_TICKET.HasValue ?
+                new ObjectParameter("V_ID_TICKET", v_ID_TICKET) :
+                new ObjectParameter("V_ID_TICKET", typeof(decimal));
     
             var v_ID_ESTADOParameter = v_ID_ESTADO.HasValue ?
                 new ObjectParameter("V_ID_ESTADO", v_ID_ESTADO) :
@@ -141,7 +742,7 @@ namespace NMADesk.BD
                 new ObjectParameter("V_SOLUCION", v_SOLUCION) :
                 new ObjectParameter("V_SOLUCION", typeof(string));
     
-            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_TICKET", v_ID_TICKETParameter, v_FECHA_CREACION_TICKETParameter, v_FECHA_CIERRE_TICKETParameter, v_ID_ESTADOParameter, v_ID_USUARIOParameter, v_DESCRIPCIONParameter, v_ID_PROFESIONALParameter, v_SOLUCIONParameter);
+            return ((IObjectContextAdapter)this).ObjectContext.ExecuteFunction("SP_UPDATE_TICKET", v_ID_TICKETParameter, v_ID_ESTADOParameter, v_ID_USUARIOParameter, v_DESCRIPCIONParameter, v_ID_PROFESIONALParameter, v_SOLUCIONParameter);
         }
     }
 }

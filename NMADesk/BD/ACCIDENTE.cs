@@ -19,6 +19,7 @@ namespace NMADesk.BD
         public decimal CANT_AFECTADO { get; set; }
         public string DESC_ACCID { get; set; }
         public decimal EMPLEADOS_RUT_EMPL { get; set; }
+        public string STAT_ACCID { get; set; }
     
         public virtual EMPLEADOS EMPLEADOS { get; set; }
     }
